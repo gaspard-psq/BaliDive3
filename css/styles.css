@@ -97,8 +97,8 @@ video {
 }
 
 .brand-logo {
-  width: 62px;
-  height: 62px;
+  width: 100px;
+  height: 100px;
   -o-object-fit: contain;
      object-fit: contain;
   background: transparent;
