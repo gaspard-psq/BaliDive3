@@ -101,6 +101,23 @@
   padding: 3rem 0;
 }
 
+.offers__intro {
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+.offers__intro h2 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.55rem, 2.6vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+.offers__intro p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+  font-weight: 600;
+  line-height: 1.6;
+}
+
 .offers__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -115,9 +132,10 @@
           backdrop-filter: blur(10px);
   padding: 1.2rem 1.2rem 1.25rem;
   box-shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
+  text-align: center;
 }
 .offer-card h3 {
-  margin: 0 0 0.6rem;
+  margin: 0 0 0.65rem;
   font-size: 1.35rem;
   font-weight: 700;
   letter-spacing: 0.2px;
@@ -127,6 +145,15 @@
   color: rgba(255, 255, 255, 0.82);
   line-height: 1.6;
   font-weight: 600;
+}
+
+.offer-icon {
+  width: 64px;
+  height: 64px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  margin: 0 auto 0.8rem;
+  filter: drop-shadow(0 12px 22px rgba(0, 0, 0, 0.35));
 }
 
 .offer-btn {
