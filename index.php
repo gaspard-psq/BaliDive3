@@ -15,18 +15,22 @@
     <input type="checkbox" id="nav-toggle" class="nav-toggle" />
 
     <div class="header-inner">
-      <label for="nav-toggle" class="burger" aria-label="Ouvrir le menu" role="button">
-        <span></span><span></span><span></span>
-      </label>
+      <div class="header-left">
+        <label for="nav-toggle" class="burger" aria-label="Ouvrir le menu" role="button">
+          <span></span><span></span><span></span>
+        </label>
+      </div>
 
       <a class="brand" href="index.php" aria-label="Retour à l’accueil">
-        <img src="img/logo.png" alt="Logo Bali Dive Center" class="brand-logo" />
+        <img src="logo balidive.png" alt="Logo Bali Dive Center" class="brand-logo" />
       </a>
 
-      <a class="cart-link" href="panier.php" aria-label="Accéder au panier">
-        <span class="cart-icon" aria-hidden="true">🛒</span>
-        <span class="cart-text">Panier</span>
-      </a>
+      <div class="header-right">
+        <a class="cart-link" href="panier.php" aria-label="Accéder au panier">
+          <span class="cart-icon" aria-hidden="true">🛒</span>
+          <span class="cart-text">Panier</span>
+        </a>
+      </div>
     </div>
 
     <label for="nav-toggle" class="nav-overlay" aria-label="Fermer le menu"></label>
@@ -45,7 +49,7 @@
   </header>
 
   <main class="site-main">
-    <figure class="hero-video">
+    <section class="hero-video" aria-label="Vidéo d’accueil">
       <video class="hero-video__media" autoplay muted loop playsinline preload="metadata" poster="img/hero-poster.jpg">
         <source src="videoentre.mp4" type="video/mp4" />
       </video>
@@ -56,15 +60,11 @@
         <h2>Bienvenue sous les tropiques</h2>
         <p>Plongez à Bali avec une équipe passionnée, des sites exceptionnels et une expérience sur mesure.</p>
       </div>
+    </section>
 
-      <figcaption class="hero-video__caption">
-        Vidéo : immersion sur récif à Bali — coraux, poissons tropicaux et ambiance grand bleu.
-      </figcaption>
-    </figure>
-
-    <section class="section">
+    <section class="section section--full">
       <div class="container">
-        <h2>Explorez les plus beaux sites de Bali</h2>
+        <h2>BaliDive vous propose...</h2>
         <p>
           Entre récifs colorés, tombants spectaculaires et rencontres marines, Bali est une destination rêvée pour tous les niveaux.
           Nous adaptons les sorties selon la météo, votre expérience et vos envies du moment.
@@ -79,18 +79,14 @@
       </div>
     </section>
 
-    <section class="section section--alt">
+    <section class="section section--full section--alt">
       <div class="container">
-        <h2>Des offres simples, une organisation fluide</h2>
+        <h2>Pour découvrir nos offres</h2>
         <p>
-          Découvrez nos offres pour débuter, progresser ou enchaîner les plongées plaisir. Groupes à taille humaine, horaires clairs,
-          et accompagnement personnalisé avant, pendant et après la mise à l’eau.
+          Choisissez la formule qui vous correspond : découverte, packs de plongées loisir ou programme plus complet.
+          Une organisation simple, des groupes à taille humaine et un accompagnement personnalisé.
         </p>
-        <p>
-          Réservez facilement, ajoutez vos options, et retrouvez tout dans votre panier. Notre objectif : vous faire vivre une semaine
-          de plongée sans stress, 100% plaisir.
-        </p>
-        <a class="btn" href="catalogue.php">Découvrir le catalogue</a>
+        <a class="btn" href="offres.php">Découvrir nos offres</a>
       </div>
     </section>
   </main>
