@@ -26,7 +26,7 @@
       </div>
 
       <a class="brand" href="index.php" aria-label="Retour à l’accueil">
-        <img src="logo balidive.png" alt="Logo Bali Dive Center" class="brand-logo" />
+        <img src="img/logo.png" alt="Logo Bali Dive Center" class="brand-logo" />
       </a>
 
       <div class="header-right">
@@ -55,7 +55,7 @@
   <main class="site-main">
     <section class="hero-video" aria-label="Vidéo d’accueil">
       <video class="hero-video__media" autoplay muted loop playsinline preload="metadata" poster="img/hero-poster.jpg">
-        <source src="videoentre.mp4" type="video/mp4" />
+        <source src="img/plongee-bali.mp4" type="video/mp4" />
       </video>
 
       <div class="hero-video__shade" aria-hidden="true"></div>
@@ -84,19 +84,15 @@
         </div>
 
         <div class="split__media">
-          <img src="plongee1.jpg" alt="Plongée à Bali" class="split__img" />
+          <img src="img/plongee1.jpg" alt="Plongée à Bali" class="split__img" />
         </div>
       </div>
     </section>
 
-    <section class="section section--full section--alt">
-      <div class="container">
-        <h2>Pour découvrir nos offres</h2>
-        <p>
-          Choisissez la formule qui vous correspond : découverte, packs de plongées loisir ou programme plus complet.
-          Une organisation simple, des groupes à taille humaine et un accompagnement personnalisé.
-        </p>
-        <a class="btn" href="offres.php">Découvrir nos offres</a>
+    <section class="cta-image" aria-label="Découvrir nos offres">
+      <div class="cta-image__shade" aria-hidden="true"></div>
+      <div class="cta-image__content">
+        <a class="btn btn--ghost" href="offres.php">Découvrir nos offres</a>
       </div>
     </section>
   </main>

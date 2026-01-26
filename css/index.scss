@@ -74,11 +74,6 @@
   }
 }
 
-.section--alt {
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.04);
-}
-
 .split {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
@@ -94,23 +89,44 @@
   object-fit: cover;
 }
 
+.cta-image {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  background: url("../img/vue.png") center / cover no-repeat;
+}
+
+.cta-image__shade {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(900px 600px at 50% 45%, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.72)),
+    linear-gradient(180deg, rgba(7, 11, 20, 0.18), rgba(7, 11, 20, 0.82));
+}
+
+.cta-image__content {
+  position: relative;
+  z-index: 2;
+  padding: 1.5rem;
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-top: 1.2rem;
-  padding: 0.9rem 1.15rem;
-  border-radius: 16px;
-  border: 1px solid rgba(29, 214, 193, 0.35);
-  background: rgba(29, 214, 193, 0.14);
+  padding: 1rem 1.25rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  background: rgba(0, 0, 0, 0.28);
   font-weight: 700;
   letter-spacing: 0.2px;
+  backdrop-filter: blur(10px);
   transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
 
   &:hover {
     transform: translateY(-1px);
-    background: rgba(29, 214, 193, 0.18);
-    border-color: rgba(29, 214, 193, 0.55);
+    background: rgba(0, 0, 0, 0.38);
+    border-color: rgba(255, 255, 255, 0.36);
   }
 
   &:active {
@@ -118,8 +134,6 @@
   }
 }
 
-@media (max-width: 900px) {
-  .split {
-    grid-template-columns: 1fr;
-  }
+.btn--ghost {
+  border-color: rgba(255, 255, 255, 0.32);
 }
