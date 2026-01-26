@@ -47,7 +47,7 @@
   <main class="site-main">
     <figure class="hero-video">
       <video class="hero-video__media" autoplay muted loop playsinline preload="metadata" poster="img/hero-poster.jpg">
-        <source src="img/plongee-bali.mp4" type="video/mp4" />
+        <source src="videoentre.mp4" type="video/mp4" />
       </video>
 
       <div class="hero-video__shade" aria-hidden="true"></div>
