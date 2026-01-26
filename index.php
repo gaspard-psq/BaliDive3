@@ -62,24 +62,22 @@
 
       <div class="hero-video__content">
         <h2>Bienvenue sous les tropiques</h2>
-        <p>Plongez à Bali avec une équipe passionnée, des sites exceptionnels et une expérience sur mesure.</p>
+        <p>Balidive vous accompagne pour une exploration sûre et confortable des fonds marins balinais.</p>
       </div>
     </section>
 
     <section class="section section--full">
       <div class="container split">
         <div class="split__text">
-          <h2>BaliDive vous propose...</h2>
+          <h2>BaliDive</h2>
           <p>
-            Entre récifs colorés, tombants spectaculaires et rencontres marines, Bali est une destination rêvée pour tous les niveaux.
-            Nous adaptons les sorties selon la météo, votre expérience et vos envies du moment.
+            Partez à la découverte des fonds balinais avec Balidive. Entre récifs colorés, tombants impressionnants et rencontres inattendues, chaque plongée devient une petite aventure adaptée à votre niveau. Nous choisissons les sites selon la météo, votre expérience et vos envies du moment.
           </p>
           <p>
-            Briefings clairs, sécurité au cœur de chaque plongée, matériel entretenu : vous profitez pleinement de l’exploration,
-            en toute confiance et dans une ambiance conviviale.
+            Chaque sortie commence par un briefing simple et précis. Le matériel est prêt, l’équipe veille à votre sécurité, et vous pouvez vous concentrer entièrement sur l’exploration.
           </p>
           <p>
-            Envie de macro, d’épaves ou de grands pélagiques ? Nous vous guidons vers les spots qui correspondent à votre style.
+            Que vous rêviez de dénicher de petites créatures cachées, d’explorer des épaves mystérieuses ou de croiser les grands pélagiques, Balidive vous guide vers les spots qui feront vibrer votre curiosité et votre passion pour la plongée.
           </p>
         </div>
 
