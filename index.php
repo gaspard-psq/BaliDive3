@@ -6,6 +6,10 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Centre de plongée à Bali | Bali Dive Center</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="css/index.css" />
 </head>
@@ -22,7 +26,7 @@
       </div>
 
       <a class="brand" href="index.php" aria-label="Retour à l’accueil">
-        <img src="logo balidive.png" alt="Logo Bali Dive Center" class="brand-logo" />
+        <img src="img/logo.png" alt="Logo Bali Dive Center" class="brand-logo" />
       </a>
 
       <div class="header-right">
@@ -51,7 +55,7 @@
   <main class="site-main">
     <section class="hero-video" aria-label="Vidéo d’accueil">
       <video class="hero-video__media" autoplay muted loop playsinline preload="metadata" poster="img/hero-poster.jpg">
-        <source src="videoentre.mp4" type="video/mp4" />
+        <source src="img/plongee-bali.mp4" type="video/mp4" />
       </video>
 
       <div class="hero-video__shade" aria-hidden="true"></div>
@@ -63,19 +67,25 @@
     </section>
 
     <section class="section section--full">
-      <div class="container">
-        <h2>BaliDive vous propose...</h2>
-        <p>
-          Entre récifs colorés, tombants spectaculaires et rencontres marines, Bali est une destination rêvée pour tous les niveaux.
-          Nous adaptons les sorties selon la météo, votre expérience et vos envies du moment.
-        </p>
-        <p>
-          Briefings clairs, sécurité au cœur de chaque plongée, matériel entretenu : vous profitez pleinement de l’exploration,
-          en toute confiance et dans une ambiance conviviale.
-        </p>
-        <p>
-          Envie de macro, d’épaves ou de grands pélagiques ? Nous vous guidons vers les spots qui correspondent à votre style.
-        </p>
+      <div class="container split">
+        <div class="split__text">
+          <h2>BaliDive vous propose...</h2>
+          <p>
+            Entre récifs colorés, tombants spectaculaires et rencontres marines, Bali est une destination rêvée pour tous les niveaux.
+            Nous adaptons les sorties selon la météo, votre expérience et vos envies du moment.
+          </p>
+          <p>
+            Briefings clairs, sécurité au cœur de chaque plongée, matériel entretenu : vous profitez pleinement de l’exploration,
+            en toute confiance et dans une ambiance conviviale.
+          </p>
+          <p>
+            Envie de macro, d’épaves ou de grands pélagiques ? Nous vous guidons vers les spots qui correspondent à votre style.
+          </p>
+        </div>
+
+        <div class="split__media">
+          <img src="img/plongee1.jpg" alt="Plongée à Bali" class="split__img" />
+        </div>
       </div>
     </section>
 

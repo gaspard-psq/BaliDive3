@@ -1,6 +1,7 @@
 /* css/styles.scss */
 :root {
-  --header-h: 104px;
+  --header-h: 112px;
+  --wave-h: 26px;
 }
 
 *,
@@ -16,7 +17,7 @@ body {
 
 body {
   margin: 0;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  font-family: "Quicksand", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
   color: rgba(255, 255, 255, 0.92);
   background: linear-gradient(180deg, #070b14 0%, #0b1220 100%);
 }
@@ -46,6 +47,20 @@ video {
           backdrop-filter: blur(10px);
   background: rgba(7, 11, 20, 0.72);
   border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  isolation: isolate;
+}
+.site-header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(var(--wave-h) * -1 + 1px);
+  height: var(--wave-h);
+  z-index: -1;
+  background-repeat: repeat-x;
+  background-size: 180px 26px;
+  background-position: bottom center;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='26' viewBox='0 0 180 26'%3E%3Cpath d='M0 14c15 0 15-10 30-10s15 10 30 10 15-10 30-10 15 10 30 10 15-10 30-10 15 10 30 10v12H0z' fill='rgba(7,11,20,0.72)'/%3E%3Cpath d='M0 14c15 0 15-10 30-10s15 10 30 10 15-10 30-10 15 10 30 10 15-10 30-10 15 10 30 10' fill='none' stroke='rgba(255,255,255,0.14)' stroke-width='1'/%3E%3C/svg%3E");
 }
 
 .nav-toggle {
@@ -62,7 +77,7 @@ video {
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   gap: 0.9rem;
-  padding: 0 1rem;
+  padding: 0 1rem calc(var(--wave-h) * 0.35);
 }
 
 .header-left {
@@ -82,13 +97,13 @@ video {
 }
 
 .brand-logo {
-  width: 60px;
-  height: 60px;
-  border-radius: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: rgba(255, 255, 255, 0.04);
-  -o-object-fit: cover;
-     object-fit: cover;
+  width: 62px;
+  height: 62px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
 }
 
 .burger {
@@ -144,7 +159,7 @@ video {
 }
 
 .cart-text {
-  font-weight: 850;
+  font-weight: 700;
   letter-spacing: 0.2px;
   line-height: 1;
 }
@@ -188,7 +203,7 @@ video {
 }
 
 .drawer-title {
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: 0.2px;
 }
 
@@ -209,7 +224,7 @@ video {
   border-radius: 16px;
   border: 1px solid transparent;
   color: rgba(255, 255, 255, 0.72);
-  font-weight: 750;
+  font-weight: 700;
   transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 }
 .drawer-link:hover {
@@ -257,6 +272,7 @@ video {
   text-align: center;
   color: rgba(255, 255, 255, 0.72);
   font-size: 0.95rem;
+  font-weight: 600;
 }
 
 .footer-nav {
@@ -270,6 +286,7 @@ video {
   padding: 0.35rem 0.55rem;
   border-radius: 999px;
   border: 1px solid transparent;
+  font-weight: 700;
 }
 .footer-link:hover {
   color: rgba(255, 255, 255, 0.92);
@@ -279,15 +296,15 @@ video {
 
 @media (max-width: 560px) {
   :root {
-    --header-h: 96px;
+    --header-h: 104px;
+    --wave-h: 22px;
   }
   .header-inner {
-    padding: 0 0.75rem;
+    padding: 0 0.75rem calc(var(--wave-h) * 0.35);
   }
   .brand-logo {
     width: 56px;
     height: 56px;
-    border-radius: 16px;
   }
   .cart-text {
     display: none;
