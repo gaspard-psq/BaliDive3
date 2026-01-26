@@ -13,72 +13,83 @@
 <body>
   <header class="site-header">
     <div class="header-inner">
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true" />
+
+      <label for="nav-toggle" class="burger" aria-label="Ouvrir le menu" role="button">
+        <span></span><span></span><span></span>
+      </label>
+
       <a class="brand" href="index.php" aria-label="Retour à l’accueil">
         <img src="img/logo.png" alt="Logo Bali Dive Center" class="brand-logo" />
       </a>
 
-      <h1 class="site-title">Bali Dive Center</h1>
-
       <a class="cart-link" href="panier.php" aria-label="Accéder au panier">
         <span class="cart-icon" aria-hidden="true">🛒</span>
-        <span class="cart-text">Panier</span>
       </a>
     </div>
 
-    <nav class="site-nav" aria-label="Navigation principale">
-      <a class="nav-link is-active" href="index.php">Accueil</a>
-      <a class="nav-link" href="catalogue.php">Produits</a>
-      <a class="nav-link" href="contact.php">Contact</a>
+    <div class="nav-overlay" aria-hidden="true"></div>
+
+    <nav class="drawer" aria-label="Navigation principale">
+      <div class="drawer-head">
+        <span class="drawer-title">Menu</span>
+        <label for="nav-toggle" class="drawer-close" aria-label="Fermer le menu" role="button">✕</label>
+      </div>
+
+      <a class="drawer-link is-active" href="index.php">Accueil</a>
+      <a class="drawer-link" href="offres.php">Offres</a>
+      <a class="drawer-link" href="catalogue.php">Catalogue</a>
+      <a class="drawer-link" href="contact.php">Contact</a>
     </nav>
   </header>
 
   <main class="site-main">
-    <section class="hero">
-      <div class="container">
+    <figure class="hero-video">
+      <video class="hero-video__media" autoplay muted loop playsinline preload="metadata" poster="img/hero-poster.jpg">
+        <source src="img/plongee-bali.mp4" type="video/mp4" />
+      </video>
+
+      <div class="hero-video__shade" aria-hidden="true"></div>
+
+      <div class="hero-video__content">
         <h2>Bienvenue sous les tropiques</h2>
+        <p>Plongez à Bali avec une équipe passionnée, des sites exceptionnels et une expérience sur mesure.</p>
+      </div>
+
+      <figcaption class="hero-video__caption">
+        Vidéo : immersion sur récif à Bali — coraux, poissons tropicaux et ambiance grand bleu.
+      </figcaption>
+    </figure>
+
+    <section class="section">
+      <div class="container">
+        <h2>Explorez les plus beaux sites de Bali</h2>
         <p>
-          Découvrez la plongée à Bali avec une équipe passionnée, des briefings clairs et une ambiance conviviale.
-          Que vous soyez débutant ou déjà certifié, nous vous accompagnons pour vivre des immersions inoubliables.
+          Entre récifs colorés, tombants spectaculaires et rencontres marines, Bali est une destination rêvée pour tous les niveaux.
+          Nous adaptons les sorties selon la météo, votre expérience et vos envies du moment.
         </p>
         <p>
-          Nos sorties privilégient la sécurité, le respect du milieu marin et le plaisir de l’exploration.
-          Épaves, récifs colorés, tombants, macro et grands pélagiques : Bali offre une diversité exceptionnelle.
+          Briefings clairs, sécurité au cœur de chaque plongée, matériel entretenu : vous profitez pleinement de l’exploration,
+          en toute confiance et dans une ambiance conviviale.
         </p>
         <p>
-          Matériel entretenu, groupes à taille humaine, sites choisis selon la météo et votre niveau :
-          tout est pensé pour que vous profitiez pleinement de chaque plongée.
+          Envie de macro, d’épaves ou de grands pélagiques ? Nous vous guidons vers les spots qui correspondent à votre style.
         </p>
       </div>
     </section>
 
-    <section class="content">
-      <div class="container grid">
-        <div class="card">
-          <h2>Une expérience sur mesure</h2>
-          <p>
-            Vous cherchez une première immersion, un pack de plongées loisir ou un programme plus complet ?
-            Notre catalogue regroupe trois gammes d’offres adaptées à votre rythme et à vos envies.
-          </p>
-          <p>
-            Avant chaque mise à l’eau, nous faisons un briefing détaillé : plan du site, profondeur, conditions,
-            procédures de sécurité et points d’intérêt. Vous plongez ainsi en toute confiance.
-          </p>
-          <p>
-            Entre deux sorties, profitez d’un moment de détente : conseils, logbook, photos, et recommandations
-            de spots à découvrir autour de notre base.
-          </p>
-          <a class="btn" href="catalogue.php">Voir le catalogue</a>
-        </div>
-
-        <figure class="video-block">
-          <video class="dive-video" controls preload="metadata" playsinline>
-            <source src="img/plongee-bali.mp4" type="video/mp4" />
-            Votre navigateur ne supporte pas la lecture vidéo.
-          </video>
-          <figcaption>
-            Vidéo : aperçu d’une plongée sur récif à Bali — coraux, bancs de poissons tropicaux et ambiance grand bleu.
-          </figcaption>
-        </figure>
+    <section class="section section--alt">
+      <div class="container">
+        <h2>Des offres simples, une organisation fluide</h2>
+        <p>
+          Découvrez nos offres pour débuter, progresser ou enchaîner les plongées plaisir. Groupes à taille humaine, horaires clairs,
+          et accompagnement personnalisé avant, pendant et après la mise à l’eau.
+        </p>
+        <p>
+          Réservez facilement, ajoutez vos options, et retrouvez tout dans votre panier. Notre objectif : vous faire vivre une semaine
+          de plongée sans stress, 100% plaisir.
+        </p>
+        <a class="btn" href="catalogue.php">Découvrir le catalogue</a>
       </div>
     </section>
   </main>
