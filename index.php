@@ -26,7 +26,7 @@
       </div>
 
       <a class="brand" href="index.php" aria-label="Retour à l’accueil">
-        <img src="img/logo.png" alt="Logo Bali Dive Center" class="brand-logo" />
+        <img src="logo balidive.png" alt="Logo Bali Dive Center" class="brand-logo" />
       </a>
 
       <div class="header-right">
@@ -55,7 +55,7 @@
   <main class="site-main">
     <section class="hero-video" aria-label="Vidéo d’accueil">
       <video class="hero-video__media" autoplay muted loop playsinline preload="metadata" poster="img/hero-poster.jpg">
-        <source src="img/plongee-bali.mp4" type="video/mp4" />
+        <source src="videoentre.mp4" type="video/mp4" />
       </video>
 
       <div class="hero-video__shade" aria-hidden="true"></div>
@@ -84,7 +84,7 @@
         </div>
 
         <div class="split__media">
-          <img src="img/plongee1.jpg" alt="Plongée à Bali" class="split__img" />
+          <img src="plongee1.jpg" alt="Plongée à Bali" class="split__img" />
         </div>
       </div>
     </section>
