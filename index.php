@@ -89,10 +89,28 @@
       </div>
     </section>
 
-    <section class="cta-image" aria-label="Découvrir nos offres">
-      <div class="cta-image__shade" aria-hidden="true"></div>
-      <div class="cta-image__content">
-        <a class="btn btn--ghost" href="offres.php">Découvrir nos offres</a>
+    <section class="offers" aria-label="Nos offres">
+      <div class="offers__shade" aria-hidden="true"></div>
+      <div class="container offers__content">
+        <div class="offers__grid">
+          <article class="offer-card">
+            <h3>Offre essentiel</h3>
+            <p>Idéale pour démarrer : organisation simple, découverte des meilleurs spots et encadrement rassurant.</p>
+            <a class="offer-btn" href="offre.php?plan=essentiel">En savoir plus</a>
+          </article>
+
+          <article class="offer-card">
+            <h3>Offre avancé</h3>
+            <p>Pour aller plus loin : plus de plongées, sites variés et conseils personnalisés pour progresser.</p>
+            <a class="offer-btn" href="offre.php?plan=avance">En savoir plus</a>
+          </article>
+
+          <article class="offer-card">
+            <h3>Offre premium</h3>
+            <p>L’expérience complète : confort maximal, priorités de réservation et sorties sélectionnées sur mesure.</p>
+            <a class="offer-btn" href="offre.php?plan=premium">En savoir plus</a>
+          </article>
+        </div>
       </div>
     </section>
   </main>
