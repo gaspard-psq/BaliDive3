@@ -93,7 +93,7 @@
       <div class="container offers__content">
         <div class="offers__intro">
           <h2>C’est ici que vous pouvez découvrir nos offres</h2>
-          <p>Trois formules, trois niveaux d’expérience : choisissez celle qui correspond à votre séjour.</p>
+          <p>Trois formules : choisissez celle qui correspond à votre séjour.</p>
         </div>
 
         <div class="offers__grid">
