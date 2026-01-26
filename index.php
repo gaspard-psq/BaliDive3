@@ -12,9 +12,9 @@
 
 <body>
   <header class="site-header">
-    <div class="header-inner">
-      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true" />
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" />
 
+    <div class="header-inner">
       <label for="nav-toggle" class="burger" aria-label="Ouvrir le menu" role="button">
         <span></span><span></span><span></span>
       </label>
@@ -25,10 +25,11 @@
 
       <a class="cart-link" href="panier.php" aria-label="Accéder au panier">
         <span class="cart-icon" aria-hidden="true">🛒</span>
+        <span class="cart-text">Panier</span>
       </a>
     </div>
 
-    <div class="nav-overlay" aria-hidden="true"></div>
+    <label for="nav-toggle" class="nav-overlay" aria-label="Fermer le menu"></label>
 
     <nav class="drawer" aria-label="Navigation principale">
       <div class="drawer-head">
@@ -46,7 +47,7 @@
   <main class="site-main">
     <figure class="hero-video">
       <video class="hero-video__media" autoplay muted loop playsinline preload="metadata" poster="img/hero-poster.jpg">
-        <source src="17809337-hd_1920_1080_60fps.mp4" type="video/mp4" />
+        <source src="img/plongee-bali.mp4" type="video/mp4" />
       </video>
 
       <div class="hero-video__shade" aria-hidden="true"></div>
