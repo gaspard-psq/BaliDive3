@@ -106,7 +106,7 @@
               <li>Briefing clair pour plonger en confiance</li>
             </ul>
 
-            <a class="offer-btn" href="offre.php?plan=essentiel">En savoir plus</a>
+            <a class="offer-btn" href="offres.php?plan=essentiel">En savoir plus</a>
           </article>
 
           <article class="offer-card">
@@ -118,7 +118,7 @@
               <li>Rythme équilibré pour profiter à fond</li>
             </ul>
 
-            <a class="offer-btn" href="offre.php?plan=avance">En savoir plus</a>
+            <a class="offer-btn" href="offres.php?plan=avance">En savoir plus</a>
           </article>
 
           <article class="offer-card">
@@ -130,7 +130,7 @@
               <li>Sorties sur mesure selon vos envies</li>
             </ul>
 
-            <a class="offer-btn" href="offre.php?plan=premium">En savoir plus</a>
+            <a class="offer-btn" href="offres.php?plan=premium">En savoir plus</a>
           </article>
         </div>
       </div>
