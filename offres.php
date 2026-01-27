@@ -96,7 +96,7 @@
 
               <div class="offer-big__actions">
                 <button type="button" class="btn btn--primary js-add-offer" data-id="offre-essentiel">Réserver</button>
-                <a class="btn btn--ghost" href="catalogue.php">Voir le catalogue</a>
+                
               </div>
             </div>
           </article>
@@ -134,7 +134,7 @@
 
               <div class="offer-big__actions">
                 <button type="button" class="btn btn--primary js-add-offer" data-id="offre-avance">Réserver</button>
-                <a class="btn btn--ghost" href="contact.php">Nous contacter</a>
+                
               </div>
             </div>
           </article>
@@ -169,7 +169,7 @@
 
               <div class="offer-big__actions">
                 <button type="button" class="btn btn--primary js-add-offer" data-id="offre-premium">Réserver</button>
-                <a class="btn btn--ghost" href="contact.php">Demander un devis</a>
+                
               </div>
             </div>
           </article>
