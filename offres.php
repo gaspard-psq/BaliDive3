@@ -101,7 +101,8 @@
             </div>
           </article>
 
-          <article class="offer-big offer-big--accent">
+          <article class="offer-big">
+
            
 
             <div class="offer-big__top">
