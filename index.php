@@ -98,51 +98,48 @@
 
         <div class="offers__grid">
           <article class="offer-card">
-            <div class="offer-card__head">
-              <h3>Offre essentiel</h3>
-              <div class="offer-icon-wrap" aria-hidden="true">
-                <img class="offer-icon" src="img/pres1.png" alt="" />
-              </div>
+            <h3>Offre essentiel</h3>
+
+            <div class="offer-media">
+              <img src="img/pres1.png" alt="" aria-hidden="true" />
             </div>
 
             <ul class="offer-list">
-              <li>Organisation simple, idéale pour commencer</li>
-              <li>Découverte des meilleurs spots selon la météo</li>
-              <li>Encadrement rassurant et briefing clair</li>
+              <li>Organisation simple</li>
+              <li>Meilleurs spots</li>
+              <li>Briefing clair</li>
             </ul>
 
             <a class="offer-btn" href="offre.php?plan=essentiel">En savoir plus</a>
           </article>
 
           <article class="offer-card">
-            <div class="offer-card__head">
-              <h3>Offre avancé</h3>
-              <div class="offer-icon-wrap" aria-hidden="true">
-                <img class="offer-icon" src="img/pres2.png" alt="" />
-              </div>
+            <h3>Offre avancé</h3>
+
+            <div class="offer-media">
+              <img src="img/pres2.png" alt="" aria-hidden="true" />
             </div>
 
             <ul class="offer-list">
-              <li>Plus de plongées et sites variés</li>
-              <li>Conseils personnalisés pour progresser</li>
-              <li>Rythme équilibré pour profiter à fond</li>
+              <li>Plus de plongées</li>
+              <li>Conseils personnalisés</li>
+              <li>Rythme équilibré</li>
             </ul>
 
             <a class="offer-btn" href="offre.php?plan=avance">En savoir plus</a>
           </article>
 
           <article class="offer-card">
-            <div class="offer-card__head">
-              <h3>Offre premium</h3>
-              <div class="offer-icon-wrap" aria-hidden="true">
-                <img class="offer-icon" src="img/pres3.png" alt="" />
-              </div>
+            <h3>Offre premium</h3>
+
+            <div class="offer-media">
+              <img src="img/pres3.png" alt="" aria-hidden="true" />
             </div>
 
             <ul class="offer-list">
-              <li>Confort maximal et expérience complète</li>
-              <li>Priorités de réservation et flexibilité</li>
-              <li>Sorties sélectionnées sur mesure</li>
+              <li>Confort maximal</li>
+              <li>Priorité réservation</li>
+              <li>Sorties sur mesure</li>
             </ul>
 
             <a class="offer-btn" href="offre.php?plan=premium">En savoir plus</a>
