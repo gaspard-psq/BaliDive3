@@ -100,10 +100,6 @@
           <article class="offer-card">
             <h3>Offre essentiel</h3>
 
-            <div class="offer-thumb">
-              <img src="img/pres1.png" alt="" aria-hidden="true" />
-            </div>
-
             <ul class="offer-list">
               <li>Organisation simple et prise en main facile</li>
               <li>Sélection des meilleurs spots selon la météo</li>
@@ -116,10 +112,6 @@
           <article class="offer-card">
             <h3>Offre avancé</h3>
 
-            <div class="offer-thumb">
-              <img src="img/pres2.png" alt="" aria-hidden="true" />
-            </div>
-
             <ul class="offer-list">
               <li>Plus de plongées pour explorer davantage</li>
               <li>Conseils personnalisés pour progresser vite</li>
@@ -131,10 +123,6 @@
 
           <article class="offer-card">
             <h3>Offre premium</h3>
-
-            <div class="offer-thumb">
-              <img src="img/pres3.png" alt="" aria-hidden="true" />
-            </div>
 
             <ul class="offer-list">
               <li>Confort maximal pour une expérience complète</li>
