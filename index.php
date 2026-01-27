@@ -26,7 +26,7 @@
       </div>
 
       <a class="brand" href="index.php" aria-label="Retour à l’accueil">
-        <img src="img/logo balidive.png" alt="Logo Bali Dive Center" class="brand-logo" />
+        <img src="img/logo.png" alt="Logo Bali Dive Center" class="brand-logo" />
       </a>
 
       <div class="header-right">
@@ -87,57 +87,66 @@
       </div>
     </section>
 
-   <section class="offers" aria-label="Nos offres">
-  <div class="offers__shade" aria-hidden="true"></div>
+    <section class="offers" aria-label="Nos offres">
+      <div class="offers__shade" aria-hidden="true"></div>
 
-  <div class="container offers__content">
-    <div class="offers__intro">
-      <h2>C’est ici que vous pouvez découvrir nos offres</h2>
-      <p>Trois formules : choisissez celle qui correspond à votre séjour.</p>
-    </div>
-
-    <div class="offers__grid">
-      <article class="offer-card">
-        <h3>Offre essentiel</h3>
-        <div class="offer-thumb">
-          <img src="img/pres1.png" alt="" aria-hidden="true" />
+      <div class="container offers__content">
+        <div class="offers__intro">
+          <h2>C’est ici que vous pouvez découvrir nos offres</h2>
+          <p>Trois formules : choisissez celle qui correspond à votre séjour.</p>
         </div>
-        <ul class="offer-list">
-          <li>Organisation simple et prise en main facile</li>
-          <li>Sélection des meilleurs spots selon la météo</li>
-          <li>Briefing clair pour plonger en confiance</li>
-        </ul>
-        <a class="offer-btn" href="offre.php?plan=essentiel">En savoir plus</a>
-      </article>
 
-      <article class="offer-card">
-        <h3>Offre avancé</h3>
-        <div class="offer-thumb">
-          <img src="img/pres2.png" alt="" aria-hidden="true" />
-        </div>
-        <ul class="offer-list">
-          <li>Plus de plongées pour explorer davantage</li>
-          <li>Conseils personnalisés pour progresser vite</li>
-          <li>Rythme équilibré pour profiter à fond</li>
-        </ul>
-        <a class="offer-btn" href="offre.php?plan=avance">En savoir plus</a>
-      </article>
+        <div class="offers__grid">
+          <article class="offer-card">
+            <h3>Offre essentiel</h3>
 
-      <article class="offer-card">
-        <h3>Offre premium</h3>
-        <div class="offer-thumb">
-          <img src="img/pres3.png" alt="" aria-hidden="true" />
+            <div class="offer-thumb">
+              <img src="img/pres1.png" alt="" aria-hidden="true" />
+            </div>
+
+            <ul class="offer-list">
+              <li>Organisation simple et prise en main facile</li>
+              <li>Sélection des meilleurs spots selon la météo</li>
+              <li>Briefing clair pour plonger en confiance</li>
+            </ul>
+
+            <a class="offer-btn" href="offre.php?plan=essentiel">En savoir plus</a>
+          </article>
+
+          <article class="offer-card">
+            <h3>Offre avancé</h3>
+
+            <div class="offer-thumb">
+              <img src="img/pres2.png" alt="" aria-hidden="true" />
+            </div>
+
+            <ul class="offer-list">
+              <li>Plus de plongées pour explorer davantage</li>
+              <li>Conseils personnalisés pour progresser vite</li>
+              <li>Rythme équilibré pour profiter à fond</li>
+            </ul>
+
+            <a class="offer-btn" href="offre.php?plan=avance">En savoir plus</a>
+          </article>
+
+          <article class="offer-card">
+            <h3>Offre premium</h3>
+
+            <div class="offer-thumb">
+              <img src="img/pres3.png" alt="" aria-hidden="true" />
+            </div>
+
+            <ul class="offer-list">
+              <li>Confort maximal pour une expérience complète</li>
+              <li>Priorité réservation et flexibilité au quotidien</li>
+              <li>Sorties sur mesure selon vos envies</li>
+            </ul>
+
+            <a class="offer-btn" href="offre.php?plan=premium">En savoir plus</a>
+          </article>
         </div>
-        <ul class="offer-list">
-          <li>Confort maximal pour une expérience complète</li>
-          <li>Priorité réservation et flexibilité au quotidien</li>
-          <li>Sorties sur mesure selon vos envies</li>
-        </ul>
-        <a class="offer-btn" href="offre.php?plan=premium">En savoir plus</a>
-      </article>
-    </div>
-  </div>
-</section>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
