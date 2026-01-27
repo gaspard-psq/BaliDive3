@@ -102,7 +102,7 @@
           </article>
 
           <article class="offer-big offer-big--accent">
-            <div class="offer-big__badge">Le plus choisi</div>
+           
 
             <div class="offer-big__top">
               <div class="offer-big__title">
