@@ -226,8 +226,14 @@
 }
 
 .btn--primary {
-  border-color: rgba(29, 214, 193, 0.35);
-  background: rgba(29, 214, 193, 0.14);
+  color: #ffffff !important;
+  background: rgba(29, 214, 193, 0.25);
+  border: 1px solid rgba(29, 214, 193, 0.6);
+  font-weight: 700;
+}
+
+.btn--primary:hover {
+  background: rgba(29, 214, 193, 0.4);
 }
 
 .btn--primary:hover {
