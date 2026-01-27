@@ -264,4 +264,10 @@
   .offer-big {
     padding: 1rem;
   }
+}
+.offer-text {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+  font-weight: 600;
+  line-height: 1.7;
 }/*# sourceMappingURL=offres.css.map */
