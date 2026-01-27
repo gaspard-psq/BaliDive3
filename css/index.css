@@ -145,7 +145,7 @@
   letter-spacing: 0.2px;
 }
 
-/* ✅ Images identiques + coins arrondis */
+/* ✅ Images identiques + coins arrondis (FORCÉ) */
 .offer-thumb {
   width: 120px;
   height: 120px;
@@ -161,7 +161,7 @@
   -o-object-fit: cover;
      object-fit: cover;
   display: block;
-  border-radius: 22px;
+  border-radius: 22px !important;
 }
 
 /* ✅ 1 ligne max par tiret */
