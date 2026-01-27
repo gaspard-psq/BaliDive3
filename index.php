@@ -26,7 +26,7 @@
       </div>
 
       <a class="brand" href="index.php" aria-label="Retour à l’accueil">
-        <img src="img/logo balidive.png" alt="Logo Bali Dive Center" class="brand-logo" />
+        <img src="img/logo.png" alt="Logo Bali Dive Center" class="brand-logo" />
       </a>
 
       <div class="header-right">
