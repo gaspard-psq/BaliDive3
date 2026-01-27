@@ -26,7 +26,7 @@
       </div>
 
       <a class="brand" href="index.php" aria-label="Retour à l’accueil">
-        <img src="img/logo.png" alt="Logo Bali Dive Center" class="brand-logo" />
+        <img src="img/logo balidive.png" alt="Logo Bali Dive Center" class="brand-logo" />
       </a>
 
       <div class="header-right">
@@ -55,7 +55,7 @@
   <main class="site-main">
     <section class="hero-video" aria-label="Vidéo d’accueil">
       <video class="hero-video__media" autoplay muted loop playsinline preload="metadata" poster="img/hero-poster.jpg">
-        <source src="img/plongee-bali.mp4" type="video/mp4" />
+        <source src="img/videoentre.mp4" type="video/mp4" />
       </video>
 
       <div class="hero-video__shade" aria-hidden="true"></div>
@@ -98,23 +98,53 @@
 
         <div class="offers__grid">
           <article class="offer-card">
-            <h3>Offre essentiel</h3>
-            <img class="offer-icon" src="img/pres1.png" alt="" aria-hidden="true" />
-            <p>Idéale pour démarrer : organisation simple, découverte des meilleurs spots et encadrement rassurant.</p>
+            <div class="offer-card__head">
+              <h3>Offre essentiel</h3>
+              <div class="offer-icon-wrap" aria-hidden="true">
+                <img class="offer-icon" src="img/pres1.png" alt="" />
+              </div>
+            </div>
+
+            <ul class="offer-list">
+              <li>Organisation simple, idéale pour commencer</li>
+              <li>Découverte des meilleurs spots selon la météo</li>
+              <li>Encadrement rassurant et briefing clair</li>
+            </ul>
+
             <a class="offer-btn" href="offre.php?plan=essentiel">En savoir plus</a>
           </article>
 
           <article class="offer-card">
-            <h3>Offre avancé</h3>
-            <img class="offer-icon" src="img/pres2.png" alt="" aria-hidden="true" />
-            <p>Pour aller plus loin : plus de plongées, sites variés et conseils personnalisés pour progresser.</p>
+            <div class="offer-card__head">
+              <h3>Offre avancé</h3>
+              <div class="offer-icon-wrap" aria-hidden="true">
+                <img class="offer-icon" src="img/pres2.png" alt="" />
+              </div>
+            </div>
+
+            <ul class="offer-list">
+              <li>Plus de plongées et sites variés</li>
+              <li>Conseils personnalisés pour progresser</li>
+              <li>Rythme équilibré pour profiter à fond</li>
+            </ul>
+
             <a class="offer-btn" href="offre.php?plan=avance">En savoir plus</a>
           </article>
 
           <article class="offer-card">
-            <h3>Offre premium</h3>
-            <img class="offer-icon" src="img/pres3.png" alt="" aria-hidden="true" />
-            <p>L’expérience complète : confort maximal, priorités de réservation et sorties sélectionnées sur mesure.</p>
+            <div class="offer-card__head">
+              <h3>Offre premium</h3>
+              <div class="offer-icon-wrap" aria-hidden="true">
+                <img class="offer-icon" src="img/pres3.png" alt="" />
+              </div>
+            </div>
+
+            <ul class="offer-list">
+              <li>Confort maximal et expérience complète</li>
+              <li>Priorités de réservation et flexibilité</li>
+              <li>Sorties sélectionnées sur mesure</li>
+            </ul>
+
             <a class="offer-btn" href="offre.php?plan=premium">En savoir plus</a>
           </article>
         </div>
