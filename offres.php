@@ -33,6 +33,7 @@
         <a class="cart-link" href="panier.php" aria-label="Accéder au panier">
           <span class="cart-icon" aria-hidden="true">🛒</span>
           <span class="cart-text">Panier</span>
+          <span class="cart-pill" aria-label="Nombre d’articles">0</span>
         </a>
       </div>
     </div>
@@ -94,7 +95,7 @@
               </div>
 
               <div class="offer-big__actions">
-                <a class="btn btn--primary" href="panier.php?add=offre-essentiel&back=offres.php">Réserver</a>
+                <button type="button" class="btn btn--primary js-add-offer" data-id="offre-essentiel">Réserver</button>
                 <a class="btn btn--ghost" href="catalogue.php">Voir le catalogue</a>
               </div>
             </div>
@@ -131,7 +132,7 @@
               </div>
 
               <div class="offer-big__actions">
-                <a class="btn btn--primary" href="panier.php?add=offre-avance&back=offres.php">Réserver</a>
+                <button type="button" class="btn btn--primary js-add-offer" data-id="offre-avance">Réserver</button>
                 <a class="btn btn--ghost" href="contact.php">Nous contacter</a>
               </div>
             </div>
@@ -166,7 +167,7 @@
               </div>
 
               <div class="offer-big__actions">
-                <a class="btn btn--primary" href="panier.php?add=offre-premium&back=offres.php">Réserver</a>
+                <button type="button" class="btn btn--primary js-add-offer" data-id="offre-premium">Réserver</button>
                 <a class="btn btn--ghost" href="contact.php">Demander un devis</a>
               </div>
             </div>
@@ -175,6 +176,8 @@
         </div>
       </div>
     </section>
+
+    <div class="toast" id="toast" aria-live="polite" aria-atomic="true"></div>
   </main>
 
   <footer class="site-footer">
@@ -191,5 +194,64 @@
       </nav>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      const toast = document.getElementById("toast");
+      const cartPill = document.querySelector(".cart-pill");
+      let timer = null;
+
+      function showToast(msg) {
+        if (!toast) return;
+        toast.textContent = msg;
+        toast.classList.add("is-visible");
+        clearTimeout(timer);
+        timer = setTimeout(() => toast.classList.remove("is-visible"), 2400);
+      }
+
+      async function addOffer(id, btn) {
+        const fd = new FormData();
+        fd.append("action", "add");
+        fd.append("id", id);
+
+        const res = await fetch("cart_action.php", {
+          method: "POST",
+          body: fd,
+          headers: { "X-Requested-With": "XMLHttpRequest" }
+        });
+
+        const data = await res.json();
+
+        if (!data || !data.ok) {
+          showToast("❌ Impossible d’ajouter au panier.");
+          return;
+        }
+
+        if (cartPill && typeof data.count !== "undefined") cartPill.textContent = data.count;
+        showToast(data.message || "✅ Ajouté au panier.");
+
+        if (btn) {
+          btn.classList.add("is-added");
+          btn.textContent = "Ajouté ✓";
+          setTimeout(() => {
+            btn.classList.remove("is-added");
+            btn.textContent = "Réserver";
+          }, 1800);
+        }
+      }
+
+      document.addEventListener("click", function (e) {
+        const btn = e.target.closest(".js-add-offer");
+        if (!btn) return;
+
+        e.preventDefault();
+        btn.disabled = true;
+
+        addOffer(btn.dataset.id, btn)
+          .catch(() => showToast("❌ Erreur réseau."))
+          .finally(() => { btn.disabled = false; });
+      });
+    })();
+  </script>
 </body>
 </html>

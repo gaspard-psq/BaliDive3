@@ -17,6 +17,10 @@ $products = [
   "postcards" => ["name"=>"Cartes postales “Bali Underwater”","price"=>9.90],
   "bracelet-coral" => ["name"=>"Bracelet “Coral”","price"=>12.00],
   "mug-dive" => ["name"=>"Mug “Dive More”","price"=>14.90],
+
+  "offre-essentiel" => ["name"=>"Offre essentiel","price"=>89.00],
+  "offre-avance" => ["name"=>"Offre avancé","price"=>149.00],
+  "offre-premium" => ["name"=>"Offre premium","price"=>249.00],
 ];
 
 if (!isset($_SESSION["cart"])) $_SESSION["cart"] = [];
@@ -30,11 +34,10 @@ if ($action !== "add" || !isset($products[$id])) {
 }
 
 $_SESSION["cart"][$id] = ($_SESSION["cart"][$id] ?? 0) + 1;
-$count = array_sum($_SESSION["cart"]);
 
 echo json_encode([
   "ok" => true,
   "message" => "✅ “".$products[$id]["name"]."” a été ajouté au panier.",
-  "count" => $count
+  "count" => array_sum($_SESSION["cart"])
 ]);
 exit;
