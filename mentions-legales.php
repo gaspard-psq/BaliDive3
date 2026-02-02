@@ -143,61 +143,19 @@
 
 </main>
 
-<!-- REMPLACE TON FOOTER PAR CELUI-CI SUR TOUTES LES PAGES -->
-<footer class="site-footer wave-footer">
-  <div class="wave-footer__waves" aria-hidden="true">
-    <svg class="wave-footer__svg" viewBox="0 0 1200 160" preserveAspectRatio="none">
-      <defs>
-        <linearGradient id="grad1" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stop-color="#1dd6c1" stop-opacity="0.55"/>
-          <stop offset="100%" stop-color="#2f7dff" stop-opacity="0.45"/>
-        </linearGradient>
-        <linearGradient id="grad2" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stop-color="#2f7dff" stop-opacity="0.45"/>
-          <stop offset="100%" stop-color="#1dd6c1" stop-opacity="0.35"/>
-        </linearGradient>
-        <linearGradient id="grad3" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stop-color="#0b1220" stop-opacity="0.55"/>
-          <stop offset="100%" stop-color="#1dd6c1" stop-opacity="0.25"/>
-        </linearGradient>
-
-        <path id="wavePath" d="M0,70 C150,120 350,20 600,70 C850,120 1050,20 1200,70 L1200,160 L0,160 Z"></path>
-      </defs>
-
-      <g class="wave wave--back">
-        <use href="#wavePath" x="0" y="0" fill="url(#grad3)"></use>
-        <use href="#wavePath" x="1200" y="0" fill="url(#grad3)"></use>
-      </g>
-
-      <g class="wave wave--mid">
-        <use href="#wavePath" x="0" y="8" fill="url(#grad2)"></use>
-        <use href="#wavePath" x="1200" y="8" fill="url(#grad2)"></use>
-      </g>
-
-      <g class="wave wave--front">
-        <use href="#wavePath" x="0" y="16" fill="url(#grad1)"></use>
-        <use href="#wavePath" x="1200" y="16" fill="url(#grad1)"></use>
-      </g>
-    </svg>
-
-    <a class="wave-footer__logo" href="#top" aria-label="Remonter en haut de la page">
-      <img src="img/logo.png" alt="Logo Bali Dive Center" />
-    </a>
-  </div>
-
-  <div class="footer-inner wave-footer__inner">
-    <div class="footer-spacer" aria-hidden="true"></div>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-spacer"></div>
 
     <div class="footer-copy">
       © <?php echo date('Y'); ?> Bali Dive Center — Tous droits réservés
     </div>
 
-    <nav class="footer-nav" aria-label="Liens de pied de page">
+    <nav class="footer-nav">
       <a class="footer-link" href="contact.php">Contact</a>
       <a class="footer-link" href="mentions-legales.php">Mentions légales</a>
     </nav>
   </div>
 </footer>
-
 </body>
 </html>
