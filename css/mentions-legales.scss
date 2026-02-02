@@ -1,0 +1,101 @@
+/* css/mentions-legales.scss */
+
+.legal-hero {
+  position: relative;
+  min-height: calc(55svh - var(--header-h));
+  display: grid;
+  align-items: center;
+  background: url("../img/vue.png") center / cover no-repeat;
+  overflow: hidden;
+
+  &__shade {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(
+        900px 600px at 50% 45%,
+        rgba(0, 0, 0, 0.25),
+        rgba(0, 0, 0, 0.8)
+      ),
+      linear-gradient(
+        180deg,
+        rgba(7, 11, 20, 0.2),
+        rgba(7, 11, 20, 0.9)
+      );
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+    padding: 3rem 0;
+    text-align: center;
+
+    h1 {
+      margin: 0 0 0.6rem;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 800;
+      letter-spacing: 0.2px;
+      text-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
+    }
+
+    p {
+      margin: 0 auto;
+      max-width: 75ch;
+      color: rgba(255, 255, 255, 0.86);
+      font-weight: 600;
+      line-height: 1.7;
+    }
+  }
+}
+
+.legal-page {
+  padding: 3rem 0 4rem;
+}
+
+.legal-card {
+  border-radius: 26px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
+  padding: 1.5rem;
+
+  h2 {
+    margin: 1.4rem 0 0.6rem;
+    font-size: 1.35rem;
+    font-weight: 800;
+    letter-spacing: 0.15px;
+  }
+
+  p {
+    margin: 0.6rem 0 0;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.75;
+    font-weight: 500;
+  }
+
+  ul {
+    margin: 0.8rem 0 0;
+    padding-left: 1.2rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.7;
+    font-weight: 600;
+
+    li {
+      margin: 0.35rem 0;
+    }
+  }
+}
+
+.legal-updated {
+  margin-top: 1.6rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 600;
+  text-align: right;
+}
+
+@media (max-width: 900px) {
+  .legal-card {
+    padding: 1.1rem;
+  }
+}
