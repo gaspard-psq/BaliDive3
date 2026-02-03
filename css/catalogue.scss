@@ -217,11 +217,13 @@
 }
 
 .btn--primary {
-  color: #fff !important;
+  color: #ffffff !important; /* ✅ TEXTE BLANC FORCÉ */
   border-color: rgba(29, 214, 193, 0.65);
   background: rgba(29, 214, 193, 0.90);
+  font-weight: 900;
 
   &:hover {
+    color: #ffffff !important; /* ✅ reste blanc au hover */
     background: rgba(29, 214, 193, 1);
     border-color: rgba(29, 214, 193, 0.85);
   }
