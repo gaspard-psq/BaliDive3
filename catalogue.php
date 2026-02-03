@@ -57,7 +57,7 @@ $products = [
 if (!isset($_SESSION["cart"])) $_SESSION["cart"] = [];
 $cartCount = array_sum($_SESSION["cart"]);
 
-/* ✅ catalogue = seulement matériel */
+/*catalogue */
 $shown = $products;
 ?>
 <!doctype html>
