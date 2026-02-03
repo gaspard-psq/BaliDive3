@@ -51,66 +51,14 @@ $products = [
     "img" => "img/catalogue-sac.jpg",
     "desc" => "Protège vos affaires du bateau à la plage."
   ],
-  [
-    "id" => "tee-sunset",
-    "name" => "T-shirt souvenir “Sunset Bali”",
-    "category" => "Souvenirs",
-    "price" => 22.00,
-    "img" => "img/catalogue-tee.jpg",
-    "desc" => "Coton doux, coupe unisexe."
-  ],
-  [
-    "id" => "cap-wave",
-    "name" => "Casquette “Wave”",
-    "category" => "Souvenirs",
-    "price" => 18.00,
-    "img" => "img/catalogue-casquette.jpg",
-    "desc" => "Broderie, réglable, légère."
-  ],
-  [
-    "id" => "sticker-pack",
-    "name" => "Pack stickers BaliDive",
-    "category" => "Souvenirs",
-    "price" => 8.50,
-    "img" => "img/catalogue-stickers.jpg",
-    "desc" => "Vinyle waterproof, parfait pour gourde & ordi."
-  ],
-  [
-    "id" => "postcards",
-    "name" => "Cartes postales “Bali Underwater”",
-    "category" => "Souvenirs",
-    "price" => 9.90,
-    "img" => "img/catalogue-cartes.jpg",
-    "desc" => "Set de 6 cartes, photos sous-marines."
-  ],
-  [
-    "id" => "bracelet-coral",
-    "name" => "Bracelet “Coral”",
-    "category" => "Souvenirs",
-    "price" => 12.00,
-    "img" => "img/catalogue-bracelet.jpg",
-    "desc" => "Souvenir léger, style plage."
-  ],
-  [
-    "id" => "mug-dive",
-    "name" => "Mug “Dive More”",
-    "category" => "Souvenirs",
-    "price" => 14.90,
-    "img" => "img/catalogue-mug.jpg",
-    "desc" => "Céramique, idéal au retour de plongée."
-  ],
 ];
 
+/* panier */
 if (!isset($_SESSION["cart"])) $_SESSION["cart"] = [];
 $cartCount = array_sum($_SESSION["cart"]);
 
-$filter = isset($_GET["cat"]) ? $_GET["cat"] : "Tous";
-$allowed = ["Tous", "Materiel", "Souvenirs"];
-if (!in_array($filter, $allowed, true)) $filter = "Tous";
-
-$shown = array_values(array_filter($products, function($p) use ($filter) {
-  return $filter === "Tous" ? true : $p["category"] === $filter;
-}));
+/* ✅ catalogue = seulement matériel */
+$shown = $products;
 ?>
 <!doctype html>
 <html lang="fr">
@@ -171,13 +119,7 @@ $shown = array_values(array_filter($products, function($p) use ($filter) {
       <div class="catalog-hero__shade" aria-hidden="true"></div>
       <div class="container catalog-hero__content">
         <h1>Catalogue</h1>
-        <p>Matériel de plongée et souvenirs — tout pour prolonger l’expérience BaliDive.</p>
-
-        <div class="catalog-filters" role="navigation" aria-label="Filtres du catalogue">
-          <a class="chip <?php echo $filter==="Tous" ? "is-active" : ""; ?>" href="catalogue.php?cat=Tous">Tous</a>
-          <a class="chip <?php echo $filter==="Materiel" ? "is-active" : ""; ?>" href="catalogue.php?cat=Materiel">Matériel</a>
-          <a class="chip <?php echo $filter==="Souvenirs" ? "is-active" : ""; ?>" href="catalogue.php?cat=Souvenirs">Souvenirs</a>
-        </div>
+        <p>Matériel de plongée — tout pour prolonger l’expérience BaliDive.</p>
       </div>
     </section>
 
@@ -195,7 +137,7 @@ $shown = array_values(array_filter($products, function($p) use ($filter) {
             <article class="product-card" id="<?php echo htmlspecialchars($p["id"]); ?>">
               <a class="product-media" href="<?php echo "produit.php?id=" . urlencode($p["id"]); ?>" aria-label="<?php echo htmlspecialchars($p["name"]); ?>">
                 <img src="<?php echo htmlspecialchars($p["img"]); ?>" alt="<?php echo htmlspecialchars($p["name"]); ?>" loading="lazy" />
-                <span class="product-badge"><?php echo htmlspecialchars($p["category"]); ?></span>
+                <span class="product-badge">Matériel</span>
               </a>
 
               <div class="product-body">
@@ -213,8 +155,6 @@ $shown = array_values(array_filter($products, function($p) use ($filter) {
                   </div>
 
                   <div class="product-actions">
-                    <a class="btn btn--ghost" href="<?php echo "produit.php?id=" . urlencode($p["id"]); ?>">Voir</a>
-
                     <button
                       type="button"
                       class="btn btn--primary js-add"
