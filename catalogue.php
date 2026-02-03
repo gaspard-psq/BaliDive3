@@ -24,7 +24,7 @@ $products = [
     "name" => "Palmes ReefFlex",
     "category" => "Materiel",
     "price" => 49.90,
-    "img" => "img/palme.jpg",
+    "img" => "img/palme2.jpg",
     "desc" => "Puissance + confort, sangle réglable."
   ],
   [
