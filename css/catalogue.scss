@@ -69,11 +69,11 @@
   border: 1px solid rgba(255, 255, 255, 0.22);
   background: rgba(255, 255, 255, 0.10);
   font-weight: 900;
-  color: #fff; /* ✅ blanc */
+  color: #fff;
 }
 
 .count-text {
-  color: rgba(255, 255, 255, 0.92); /* ✅ plus blanc */
+  color: rgba(255, 255, 255, 0.92);
   font-weight: 700;
 }
 
@@ -83,11 +83,11 @@
   gap: 1.2rem;
 }
 
-/* ✅ cartes plus claires (fond blanc léger) */
+/* ✅ DIV PRODUIT EN BLANC (fond clair + texte sombre) */
 .product-card {
   border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.30);
-  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(10px);
   overflow: hidden;
   box-shadow: 0 18px 44px rgba(0, 0, 0, 0.22);
@@ -107,7 +107,6 @@
     display: block;
     transform: scale(1.02);
     transition: transform 0.25s ease;
-    filter: brightness(0.92) contrast(1.05);
   }
 
   &:hover img {
@@ -115,18 +114,19 @@
   }
 }
 
+/* ✅ badge lisible sur image */
 .product-badge {
   position: absolute;
   top: 0.9rem;
   left: 0.9rem;
   padding: 0.35rem 0.7rem;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.18);
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(7, 11, 20, 0.70);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   font-weight: 900;
   font-size: 0.9rem;
   letter-spacing: 0.15px;
-  color: rgba(255, 255, 255, 0.96);
+  color: rgba(255, 255, 255, 0.95);
 }
 
 .product-body {
@@ -135,6 +135,7 @@
   gap: 0.65rem;
 }
 
+/* ✅ textes en sombre (car fond blanc) */
 .product-title {
   margin: 0;
   font-size: 1.15rem;
@@ -142,18 +143,18 @@
   letter-spacing: 0.15px;
 
   a {
-    color: rgba(255, 255, 255, 0.98);
+    color: rgba(7, 11, 20, 0.95);
 
     &:hover {
-      color: rgba(255, 255, 255, 1);
+      color: rgba(7, 11, 20, 1);
     }
   }
 }
 
 .product-desc {
   margin: 0;
-  color: rgba(255, 255, 255, 0.92); /* ✅ plus blanc */
-  font-weight: 600;
+  color: rgba(7, 11, 20, 0.78);
+  font-weight: 700;
   line-height: 1.6;
 }
 
@@ -175,7 +176,7 @@
     font-weight: 900;
     font-size: 1.15rem;
     letter-spacing: 0.2px;
-    color: #fff; /* ✅ blanc */
+    color: rgba(7, 11, 20, 0.95);
   }
 }
 
@@ -184,23 +185,24 @@
   gap: 0.55rem;
 }
 
+/* ✅ bouton turquoise + texte blanc */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 0.75rem 0.95rem;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.26);
-  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(7, 11, 20, 0.15);
+  background: rgba(7, 11, 20, 0.06);
   font-weight: 900;
   letter-spacing: 0.2px;
   transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
-  color: #fff;
+  color: rgba(7, 11, 20, 0.9);
 
   &:hover {
     transform: translateY(-1px);
-    background: rgba(255, 255, 255, 0.16);
-    border-color: rgba(255, 255, 255, 0.36);
+    background: rgba(7, 11, 20, 0.09);
+    border-color: rgba(7, 11, 20, 0.22);
   }
 
   &:active {
@@ -210,12 +212,12 @@
 
 .btn--primary {
   color: #fff !important;
-  border-color: rgba(29, 214, 193, 0.45);
-  background: rgba(29, 214, 193, 0.20);
+  border-color: rgba(29, 214, 193, 0.65);
+  background: rgba(29, 214, 193, 0.90);
 
   &:hover {
-    background: rgba(29, 214, 193, 0.28);
-    border-color: rgba(29, 214, 193, 0.65);
+    background: rgba(29, 214, 193, 1);
+    border-color: rgba(29, 214, 193, 0.85);
   }
 }
 
@@ -239,7 +241,7 @@
   }
 }
 
-/* pill + toast (inchangé) */
+/* pill + toast */
 .cart-pill {
   margin-left: 0.5rem;
   display: inline-flex;
