@@ -72,7 +72,7 @@ $shown = $products;
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/styles.css" />
-  <link rel="stylesheet" href="css/catalogue.css" />
+  <link rel="stylesheet" href="css/catalogue.scss" />
 </head>
 
 <body>
