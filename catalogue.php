@@ -8,7 +8,7 @@ $products = [
     "name" => "Masque AquaView",
     "category" => "Materiel",
     "price" => 39.90,
-    "img" => "img/catalogue-masque.jpg",
+    "img" => "img/masque.jpg",
     "desc" => "Vision large, jupe silicone confortable."
   ],
   [
