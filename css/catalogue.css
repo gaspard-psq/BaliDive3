@@ -1,7 +1,5 @@
 @charset "UTF-8";
-/* ============================= */
-/* HERO CATALOGUE               */
-/* ============================= */
+/* css/catalogue.scss */
 .catalog-hero {
   position: relative;
   min-height: calc(60svh - var(--header-h));
@@ -27,25 +25,28 @@
   margin: 0 0 0.6rem;
   font-size: clamp(2rem, 4vw, 3.2rem);
   font-weight: 700;
+  letter-spacing: 0.2px;
   text-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
 }
 .catalog-hero__content p {
-  margin: 0 auto;
+  margin: 0 auto 0;
   max-width: 75ch;
   color: rgba(255, 255, 255, 0.86);
   font-weight: 600;
   line-height: 1.7;
+  text-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
 }
 
-/* ============================= */
-/* SECTION CATALOGUE             */
-/* ============================= */
 .catalog {
-  padding: 3rem 0 4rem;
+  padding: 2.75rem 0 4rem;
 }
 
 .catalog-head {
-  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.15rem;
 }
 
 .catalog-count {
@@ -55,42 +56,42 @@
 }
 
 .count-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   min-width: 42px;
   height: 34px;
   padding: 0 0.7rem;
   border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
   background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.18);
   font-weight: 900;
+  color: #fff;
 }
 
 .count-text {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.92);
   font-weight: 700;
 }
 
-/* ============================= */
-/* GRILLE PRODUITS               */
-/* ============================= */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.4rem;
+  gap: 1.2rem;
 }
 
-/* ============================= */
-/* CARTE PRODUIT (BLANC)         */
-/* ============================= */
+/* ✅ DIV PRODUIT EN BLANC (fond clair + texte sombre) */
 .product-card {
-  background: #ffffff;
   border-radius: 24px;
-  border: 1px solid rgb(255, 255, 255);
-  box-shadow: 0 18px 40px rgb(255, 255, 255);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.92);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
   overflow: hidden;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.22);
   display: grid;
 }
 
-/* IMAGE */
 .product-media {
   position: relative;
   display: block;
@@ -103,92 +104,114 @@
   -o-object-fit: cover;
      object-fit: cover;
   display: block;
+  transform: scale(1.02);
+  transition: transform 0.25s ease;
+}
+.product-media:hover img {
+  transform: scale(1.06);
 }
 
-/* BADGE CATÉGORIE */
+/* ✅ badge lisible sur image */
 .product-badge {
   position: absolute;
   top: 0.9rem;
   left: 0.9rem;
-  padding: 0.35rem 0.75rem;
+  padding: 0.35rem 0.7rem;
   border-radius: 999px;
-  background: rgba(7, 11, 20, 0.85);
-  color: #ffffff;
-  font-weight: 800;
-  font-size: 0.85rem;
+  background: rgba(7, 11, 20, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  font-weight: 900;
+  font-size: 0.9rem;
+  letter-spacing: 0.15px;
+  color: rgba(255, 255, 255, 0.95);
 }
 
-/* CONTENU */
 .product-body {
-  padding: 1.15rem;
+  padding: 1rem 1rem 1.05rem;
   display: grid;
-  gap: 0.6rem;
+  gap: 0.65rem;
 }
 
-/* TITRE */
+/* ✅ textes en sombre (car fond blanc) */
 .product-title {
   margin: 0;
   font-size: 1.15rem;
   font-weight: 900;
+  letter-spacing: 0.15px;
 }
 .product-title a {
-  color: #0b1220;
-  text-decoration: none;
+  color: rgba(7, 11, 20, 0.95);
 }
 .product-title a:hover {
-  color: #000;
+  color: rgb(7, 11, 20);
 }
 
-/* DESCRIPTION */
 .product-desc {
   margin: 0;
-  color: rgba(0, 0, 0, 0.65);
-  font-weight: 600;
+  color: rgba(7, 11, 20, 0.78);
+  font-weight: 700;
   line-height: 1.6;
 }
 
-/* BAS DE CARTE */
 .product-bottom {
-  margin-top: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 0.8rem;
   flex-wrap: wrap;
+  margin-top: 0.2rem;
 }
 
-/* PRIX */
+.product-price {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35rem;
+}
 .product-price .price-value {
-  font-size: 1.15rem;
   font-weight: 900;
-  color: #0b1220;
+  font-size: 1.15rem;
+  letter-spacing: 0.2px;
+  color: rgba(7, 11, 20, 0.95);
 }
 
-/* ACTIONS */
 .product-actions {
   display: inline-flex;
+  gap: 0.55rem;
 }
 
-/* BOUTON AJOUTER */
+/* ✅ bouton turquoise + texte blanc */
 .btn {
-  padding: 0.75rem 1.1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 0.95rem;
   border-radius: 999px;
+  border: 1px solid rgba(7, 11, 20, 0.15);
+  background: rgba(7, 11, 20, 0.06);
   font-weight: 900;
-  border: none;
-  cursor: pointer;
+  letter-spacing: 0.2px;
+  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+  color: rgba(7, 11, 20, 0.9);
+}
+.btn:hover {
+  transform: translateY(-1px);
+  background: rgba(7, 11, 20, 0.09);
+  border-color: rgba(7, 11, 20, 0.22);
+}
+.btn:active {
+  transform: translateY(0);
 }
 
 .btn--primary {
-  background: rgba(29, 214, 193, 0.95);
-  color: #ffffff;
+  color: #fff !important;
+  border-color: rgba(29, 214, 193, 0.65);
+  background: rgba(29, 214, 193, 0.9);
 }
 .btn--primary:hover {
   background: rgb(29, 214, 193);
+  border-color: rgba(29, 214, 193, 0.85);
 }
 
-/* ============================= */
-/* RESPONSIVE                    */
-/* ============================= */
 @media (max-width: 980px) {
   .product-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -198,17 +221,31 @@
   .product-grid {
     grid-template-columns: 1fr;
   }
-  .product-bottom {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  .product-bottom .btn {
+  .product-actions {
     width: 100%;
   }
+  .product-actions .btn {
+    flex: 1;
+  }
 }
-/* ============================= */
-/* TOAST                         */
-/* ============================= */
+/* pill + toast */
+.cart-pill {
+  margin-left: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 22px;
+  padding: 0 0.45rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  font-weight: 900;
+  font-size: 0.9rem;
+  line-height: 1;
+  color: #fff;
+}
+
 .toast {
   position: fixed;
   left: 50%;
@@ -218,10 +255,14 @@
   pointer-events: none;
   padding: 0.9rem 1.1rem;
   border-radius: 18px;
-  background: rgba(7, 11, 20, 0.92);
   border: 1px solid rgba(29, 214, 193, 0.35);
-  color: #ffffff;
+  background: rgba(7, 11, 20, 0.92);
+  -webkit-backdrop-filter: blur(12px);
+          backdrop-filter: blur(12px);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.35);
   font-weight: 900;
+  letter-spacing: 0.15px;
+  color: rgba(255, 255, 255, 0.92);
   transition: opacity 0.18s ease, transform 0.18s ease;
   z-index: 9999;
 }
@@ -229,19 +270,4 @@
 .toast.is-visible {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
-}
-
-/* ============================= */
-/* PANIER PILL                   */
-/* ============================= */
-.cart-pill {
-  margin-left: 0.5rem;
-  min-width: 28px;
-  height: 22px;
-  padding: 0 0.45rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  font-weight: 900;
-  font-size: 0.9rem;
 }/*# sourceMappingURL=catalogue.css.map */
