@@ -211,13 +211,6 @@
   font-weight: 700;
 }
 
-/* Sécurité totale */
-.btn--primary,
-.btn--primary a,
-.btn--primary span {
-  color: #ffffff !important;
-}
-
 /* RESPONSIVE */
 @media (max-width: 980px) {
   .product-grid {
