@@ -32,7 +32,7 @@ $products = [
     "name" => "Rashguard BaliDive",
     "category" => "Materiel",
     "price" => 34.90,
-    "img" => "img/catalogue-rashguard.jpg",
+    "img" => "img/rashguard.jpg",
     "desc" => "Protection UV, séchage rapide."
   ],
   [
