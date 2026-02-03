@@ -78,13 +78,23 @@
                   <span class="price__value">69€</span>
                   <span class="price__unit">/ personne</span>
                 </div>
+              </div>
             </div>
 
             <div class="offer-big__body">
               <div class="specs">
-                <div class="spec"><span class="spec__k">Durée</span><span class="spec__v">1 à 2 heures</span></div>
-                <div class="spec"><span class="spec__k">Niveau</span><span class="spec__v">Débutant → Intermédiaire</span></div>
-                <div class="spec"><span class="spec__k">Lieux</span><span class="spec__v">Faune locale</span></div>
+                <div class="spec">
+                  <span class="spec__k">Durée</span>
+                  <span class="spec__v">1 à 2 heures</span>
+                </div>
+                <div class="spec">
+                  <span class="spec__k">Niveau</span>
+                  <span class="spec__v">Débutant → Intermédiaire</span>
+                </div>
+                <div class="spec">
+                  <span class="spec__k">Lieux</span>
+                  <span class="spec__v">Faune locale</span>
+                </div>
               </div>
 
               <div class="offer-text">
@@ -93,15 +103,11 @@
 
               <div class="offer-big__actions">
                 <button type="button" class="btn btn--primary js-add-offer" data-id="offre-essentiel">Réserver</button>
-                
               </div>
             </div>
           </article>
 
           <article class="offer-big">
-
-           
-
             <div class="offer-big__top">
               <div class="offer-big__title">
                 <h2>Offre avancé</h2>
@@ -113,13 +119,23 @@
                   <span class="price__value">149€</span>
                   <span class="price__unit">/ personne</span>
                 </div>
+              </div>
             </div>
 
             <div class="offer-big__body">
               <div class="specs">
-                <div class="spec"><span class="spec__k">Durée</span><span class="spec__v">4 heures</span></div>
-                <div class="spec"><span class="spec__k">Niveau</span><span class="spec__v">Intermédiaire</span></div>
-                <div class="spec"><span class="spec__k">Lieux</span><span class="spec__v">Récifs + tombants</span></div>
+                <div class="spec">
+                  <span class="spec__k">Durée</span>
+                  <span class="spec__v">4 heures</span>
+                </div>
+                <div class="spec">
+                  <span class="spec__k">Niveau</span>
+                  <span class="spec__v">Intermédiaire</span>
+                </div>
+                <div class="spec">
+                  <span class="spec__k">Lieux</span>
+                  <span class="spec__v">Récifs + tombants</span>
+                </div>
               </div>
 
               <div class="offer-text">
@@ -128,7 +144,6 @@
 
               <div class="offer-big__actions">
                 <button type="button" class="btn btn--primary js-add-offer" data-id="offre-avance">Réserver</button>
-                
               </div>
             </div>
           </article>
@@ -145,13 +160,23 @@
                   <span class="price__value">249€</span>
                   <span class="price__unit">/ personne</span>
                 </div>
+              </div>
             </div>
 
             <div class="offer-big__body">
               <div class="specs">
-                <div class="spec"><span class="spec__k">Durée</span><span class="spec__v">8 heures</span></div>
-                <div class="spec"><span class="spec__k">Niveau</span><span class="spec__v">Intermédiaire → Avancé</span></div>
-                <div class="spec"><span class="spec__k">Lieux</span><span class="spec__v">Sélection sur mesure</span></div>
+                <div class="spec">
+                  <span class="spec__k">Durée</span>
+                  <span class="spec__v">8 heures</span>
+                </div>
+                <div class="spec">
+                  <span class="spec__k">Niveau</span>
+                  <span class="spec__v">Intermédiaire → Avancé</span>
+                </div>
+                <div class="spec">
+                  <span class="spec__k">Lieux</span>
+                  <span class="spec__v">Sélection sur mesure</span>
+                </div>
               </div>
 
               <div class="offer-text">
@@ -160,7 +185,6 @@
 
               <div class="offer-big__actions">
                 <button type="button" class="btn btn--primary js-add-offer" data-id="offre-premium">Réserver</button>
-                
               </div>
             </div>
           </article>
