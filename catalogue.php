@@ -48,7 +48,7 @@ $products = [
     "name" => "Sac étanche OceanBag 10L",
     "category" => "Materiel",
     "price" => 24.90,
-    "img" => "img/sac.jpg",
+    "img" => "img/sac2.jpg",
     "desc" => "Protège vos affaires du bateau à la plage."
   ],
 ];
