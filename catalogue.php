@@ -16,7 +16,7 @@ $products = [
     "name" => "Tuba FlowDry",
     "category" => "Materiel",
     "price" => 19.90,
-    "img" => "img/tuba.jpg",
+    "img" => "img/tubaa.jpg",
     "desc" => "Embout doux, clapet anti-retour."
   ],
   [
