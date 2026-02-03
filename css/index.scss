@@ -1,12 +1,12 @@
 /* css/index.scss */
 
-.banniereVideo {
+.hero-video {
   position: relative;
   height: calc(100svh - var(--header-h));
   min-height: 420px;
   overflow: hidden;
 
-  &__video {
+  &__media {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -15,14 +15,14 @@
     transform: scale(1.02);
   }
 
-  &__voile {
+  &__shade {
     position: absolute;
     inset: 0;
     background: radial-gradient(900px 600px at 50% 45%, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.65)),
       linear-gradient(180deg, rgba(7, 11, 20, 0.12), rgba(7, 11, 20, 0.78));
   }
 
-  &__contenu {
+  &__content {
     position: relative;
     z-index: 2;
     height: 100%;
@@ -51,7 +51,7 @@
   }
 }
 
-.section--pleineLargeur {
+.section--full {
   min-height: 100svh;
   display: grid;
   align-items: center;
@@ -74,14 +74,14 @@
   }
 }
 
-.deuxColonnes {
+.split {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
   gap: 1.5rem;
   align-items: center;
 }
 
-.deuxColonnes__image {
+.split__img {
   width: 100%;
   border-radius: 22px;
   border: 1px solid rgba(255, 255, 255, 0.14);
@@ -89,7 +89,7 @@
   object-fit: cover;
 }
 
-.offres {
+.offers {
   position: relative;
   min-height: 100svh;
   display: grid;
@@ -97,20 +97,20 @@
   background: url("../img/vue.png") center / cover no-repeat;
 }
 
-.offres__voile {
+.offers__shade {
   position: absolute;
   inset: 0;
   background: radial-gradient(900px 600px at 50% 45%, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.78)),
     linear-gradient(180deg, rgba(7, 11, 20, 0.12), rgba(7, 11, 20, 0.86));
 }
 
-.offres__contenu {
+.offers__content {
   position: relative;
   z-index: 2;
   padding: 3rem 0;
 }
 
-.offres__intro {
+.offers__intro {
   text-align: center;
   margin-bottom: 1.25rem;
 
@@ -129,14 +129,14 @@
   }
 }
 
-.offres__grille {
+.offers__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.2rem;
 }
 
 /* ✅ mêmes hauteurs + bouton aligné en bas */
-.carteOffre {
+.offer-card {
   border-radius: 24px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   background: rgba(0, 0, 0, 0.30);
@@ -159,7 +159,7 @@
 }
 
 /* ✅ 1 ligne max par tiret */
-.carteOffre__liste {
+.offer-list {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -195,7 +195,7 @@
   }
 }
 
-.carteOffre__bouton {
+.offer-btn {
   align-self: center;
   display: inline-flex;
   align-items: center;
@@ -219,15 +219,15 @@
 }
 
 @media (max-width: 980px) {
-  .offres__grille {
+  .offers__grid {
     grid-template-columns: 1fr;
     max-width: 560px;
     margin: 0 auto;
   }
 
-  .carteOffre__liste li { max-width: 46ch; }
+  .offer-list li { max-width: 46ch; }
 }
 
 @media (max-width: 900px) {
-  .deuxColonnes { grid-template-columns: 1fr; }
+  .split { grid-template-columns: 1fr; }
 }

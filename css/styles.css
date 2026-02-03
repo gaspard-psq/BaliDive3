@@ -32,12 +32,12 @@ img, video {
   display: block;
 }
 
-.conteneur {
+.container {
   width: min(1100px, 100% - 2rem);
   margin: 0 auto;
 }
 
-.entete {
+.site-header {
   position: sticky;
   top: 0;
   z-index: 50;
@@ -47,13 +47,13 @@ img, video {
   border-bottom: 1px solid rgba(255, 255, 255, 0.14);
 }
 
-.entete__toggleMenu {
+.nav-toggle {
   position: fixed;
   opacity: 0;
   pointer-events: none;
 }
 
-.entete__barre {
+.header-inner {
   height: var(--header-h);
   width: 100%;
   margin: 0 auto;
@@ -64,23 +64,23 @@ img, video {
   padding: 0 1rem;
 }
 
-.entete__gauche {
+.header-left {
   display: flex;
   justify-content: flex-start;
 }
 
-.entete__droite {
+.header-right {
   display: flex;
   justify-content: flex-end;
 }
 
-.entete__lienMarque {
+.brand {
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
 
-.entete__logo {
+.brand-logo {
   width: 130px;
   height: 130px;
   -o-object-fit: contain;
@@ -90,7 +90,7 @@ img, video {
   border-radius: 0;
 }
 
-.entete__boutonMenu {
+.burger {
   width: 56px;
   height: 56px;
   display: inline-flex;
@@ -104,11 +104,11 @@ img, video {
   flex-direction: column;
   transition: background 0.15s ease, border-color 0.15s ease;
 }
-.entete__boutonMenu:hover {
+.burger:hover {
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.22);
 }
-.entete__boutonMenu span {
+.burger span {
   width: 24px;
   height: 2px;
   background: rgba(255, 255, 255, 0.9);
@@ -116,7 +116,7 @@ img, video {
   display: block;
 }
 
-.entete__lienPanier {
+.cart-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -128,27 +128,27 @@ img, video {
   background: rgba(255, 255, 255, 0.04);
   transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
 }
-.entete__lienPanier:hover {
+.cart-link:hover {
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.22);
   transform: translateY(-1px);
 }
-.entete__lienPanier:active {
+.cart-link:active {
   transform: translateY(0);
 }
 
-.entete__iconePanier {
+.cart-icon {
   font-size: 1.15rem;
   line-height: 1;
 }
 
-.entete__textePanier {
+.cart-text {
   font-weight: 700;
   letter-spacing: 0.2px;
   line-height: 1;
 }
 
-.entete__fondMenu {
+.nav-overlay {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.48);
@@ -158,7 +158,7 @@ img, video {
   z-index: 40;
 }
 
-.menuTiroir {
+.drawer {
   position: fixed;
   top: 0;
   left: 0;
@@ -177,7 +177,7 @@ img, video {
   gap: 0.4rem;
 }
 
-.menuTiroir__entete {
+.drawer-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -186,12 +186,12 @@ img, video {
   margin-bottom: 0.45rem;
 }
 
-.menuTiroir__titre {
+.drawer-title {
   font-weight: 700;
   letter-spacing: 0.2px;
 }
 
-.menuTiroir__fermer {
+.drawer-close {
   width: 44px;
   height: 44px;
   display: inline-flex;
@@ -203,7 +203,7 @@ img, video {
   cursor: pointer;
 }
 
-.menuTiroir__lien {
+.drawer-link {
   padding: 0.9rem 0.95rem;
   border-radius: 16px;
   border: 1px solid transparent;
@@ -211,38 +211,38 @@ img, video {
   font-weight: 700;
   transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 }
-.menuTiroir__lien:hover {
+.drawer-link:hover {
   color: rgba(255, 255, 255, 0.92);
   background: rgba(255, 255, 255, 0.06);
   border-color: rgba(255, 255, 255, 0.12);
 }
-.menuTiroir__lien.estActif {
+.drawer-link.is-active {
   color: rgba(255, 255, 255, 0.92);
   background: rgba(29, 214, 193, 0.12);
   border-color: rgba(29, 214, 193, 0.32);
 }
 
-.entete__toggleMenu:checked ~ .entete__fondMenu {
+.nav-toggle:checked ~ .nav-overlay {
   opacity: 1;
   pointer-events: auto;
 }
 
-.entete__toggleMenu:checked ~ .menuTiroir {
+.nav-toggle:checked ~ .drawer {
   transform: translateX(0);
 }
 
-.contenuPrincipal {
+.site-main {
   padding: 0;
 }
 
-.piedDePage {
+.site-footer {
   border-top: 1px solid rgba(255, 255, 255, 0.14);
   background: rgba(7, 11, 20, 0.72);
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
 }
 
-.piedDePage__interieur {
+.footer-inner {
   width: min(1100px, 100% - 2rem);
   margin: 0 auto;
   padding: 1rem;
@@ -252,27 +252,27 @@ img, video {
   gap: 0.75rem;
 }
 
-.piedDePage__copyright {
+.footer-copy {
   text-align: center;
   color: rgba(255, 255, 255, 0.72);
   font-size: 0.95rem;
   font-weight: 600;
 }
 
-.piedDePage__navigation {
+.footer-nav {
   display: flex;
   justify-content: flex-end;
   gap: 0.65rem;
 }
 
-.piedDePage__lien {
+.footer-link {
   color: rgba(255, 255, 255, 0.72);
   padding: 0.35rem 0.55rem;
   border-radius: 999px;
   border: 1px solid transparent;
   font-weight: 700;
 }
-.piedDePage__lien:hover {
+.footer-link:hover {
   color: rgba(255, 255, 255, 0.92);
   background: rgba(255, 255, 255, 0.06);
   border-color: rgba(255, 255, 255, 0.12);
@@ -282,27 +282,27 @@ img, video {
   :root {
     --header-h: 128px;
   }
-  .entete__barre {
+  .header-inner {
     padding: 0 0.75rem;
   }
-  .entete__logo {
+  .brand-logo {
     width: 110px;
     height: 110px;
   }
-  .entete__textePanier {
+  .cart-text {
     display: none;
   }
-  .entete__lienPanier {
+  .cart-link {
     padding: 0 0.9rem;
   }
-  .piedDePage__interieur {
+  .footer-inner {
     grid-template-columns: 1fr;
     text-align: center;
   }
-  .piedDePage__espace {
+  .footer-spacer {
     display: none;
   }
-  .piedDePage__navigation {
+  .footer-nav {
     justify-content: center;
   }
 }/*# sourceMappingURL=styles.css.map */
