@@ -222,15 +222,10 @@
 
 /* BOUTON AJOUTER – TEXTE BLANC */
 .btn--primary {
-  background: rgba(29, 214, 193, 0.95);
-  border-color: rgba(29, 214, 193, 0.85);
   color: #ffffff !important;
-
-  &:hover {
-    background: rgba(29, 214, 193, 1);
-    border-color: rgba(29, 214, 193, 1);
-    color: #ffffff !important;
-  }
+  background: rgba(29, 214, 193, 0.25);
+  border: 1px solid rgba(29, 214, 193, 0.6);
+  font-weight: 700;
 }
 
 /* Sécurité totale */
