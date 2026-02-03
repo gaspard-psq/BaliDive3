@@ -40,7 +40,7 @@ $products = [
     "name" => "Lampe MiniTorch",
     "category" => "Materiel",
     "price" => 29.90,
-    "img" => "img/catalogue-lampe.jpg",
+    "img" => "img/lampe-torche.jpg",
     "desc" => "Compacte, parfaite pour les récifs."
   ],
   [
