@@ -96,7 +96,7 @@
         <article class="offer-card">
           <h3>Offre essentiel</h3>
           <ul class="offer-list">
-            <li>1 plongée de 1 à 2 heures (60–80€)</li>
+            <li>1 plongée de 1 à 2 heures (69€)</li>
             <li>Accessible aux débutants</li>
             <li>Bateau confortable (6–8 pers.)</li>
             <li>Découverte récifs & faune locale</li>

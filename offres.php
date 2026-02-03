@@ -75,19 +75,16 @@
 
               <div class="offer-big__price">
                 <div class="price">
-                  <span class="price__value">89€</span>
+                  <span class="price__value">69€</span>
                   <span class="price__unit">/ personne</span>
                 </div>
-                <div class="price__note">Matériel inclus</div>
-              </div>
             </div>
 
             <div class="offer-big__body">
               <div class="specs">
-                <div class="spec"><span class="spec__k">Durée</span><span class="spec__v">1 journée</span></div>
-                <div class="spec"><span class="spec__k">Plongées</span><span class="spec__v">2 plongées</span></div>
+                <div class="spec"><span class="spec__k">Durée</span><span class="spec__v">1 à 2 heures</span></div>
                 <div class="spec"><span class="spec__k">Niveau</span><span class="spec__v">Débutant → Intermédiaire</span></div>
-                <div class="spec"><span class="spec__k">Sites</span><span class="spec__v">Sélection météo</span></div>
+                <div class="spec"><span class="spec__k">Lieux</span><span class="spec__v">Faune locale</span></div>
               </div>
 
               <div class="offer-text">
@@ -116,16 +113,13 @@
                   <span class="price__value">149€</span>
                   <span class="price__unit">/ personne</span>
                 </div>
-                <div class="price__note">Matériel + guide inclus</div>
-              </div>
             </div>
 
             <div class="offer-big__body">
               <div class="specs">
-                <div class="spec"><span class="spec__k">Durée</span><span class="spec__v">2 jours</span></div>
-                <div class="spec"><span class="spec__k">Plongées</span><span class="spec__v">4 plongées</span></div>
+                <div class="spec"><span class="spec__k">Durée</span><span class="spec__v">4 heures</span></div>
                 <div class="spec"><span class="spec__k">Niveau</span><span class="spec__v">Intermédiaire</span></div>
-                <div class="spec"><span class="spec__k">Sites</span><span class="spec__v">Récifs + tombants</span></div>
+                <div class="spec"><span class="spec__k">Lieux</span><span class="spec__v">Récifs + tombants</span></div>
               </div>
 
               <div class="offer-text">
@@ -151,16 +145,13 @@
                   <span class="price__value">249€</span>
                   <span class="price__unit">/ personne</span>
                 </div>
-                <div class="price__note">Priorité réservation</div>
-              </div>
             </div>
 
             <div class="offer-big__body">
               <div class="specs">
-                <div class="spec"><span class="spec__k">Durée</span><span class="spec__v">3 jours</span></div>
-                <div class="spec"><span class="spec__k">Plongées</span><span class="spec__v">6 plongées</span></div>
+                <div class="spec"><span class="spec__k">Durée</span><span class="spec__v">8 heures</span></div>
                 <div class="spec"><span class="spec__k">Niveau</span><span class="spec__v">Intermédiaire → Avancé</span></div>
-                <div class="spec"><span class="spec__k">Sites</span><span class="spec__v">Sélection sur mesure</span></div>
+                <div class="spec"><span class="spec__k">Lieux</span><span class="spec__v">Sélection sur mesure</span></div>
               </div>
 
               <div class="offer-text">
