@@ -187,8 +187,8 @@
   gap: 0.5rem;
   padding: 0.9rem 1.15rem;
   border-radius: 999px;
-  border: 1px solid rgb(255, 255, 255);
-  background: rgb(255, 255, 255);
+  border: 1px solid rgb(134, 35, 122);
+  background: rgb(40, 194, 214);
   font-weight: 800;
   letter-spacing: 0.2px;
   transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
@@ -196,8 +196,8 @@
 
 .btn:hover {
   transform: translateY(-1px);
-  background: rgb(255, 255, 255);
-  border-color: rgb(255, 255, 255);
+  background: rgb(144, 22, 22);
+  border-color: rgb(134, 53, 152);
 }
 
 .btn:active {
@@ -205,15 +205,15 @@
 }
 
 .btn--primary {
-  color: rgba(255, 255, 255, 0) !important;
+  color: #dc5009 !important;
   background: rgba(29, 214, 193, 0.25);
   border: 1px solid rgba(29, 214, 193, 0.6);
   font-weight: 700;
 }
 
 .btn--primary:hover {
-  background: rgba(29, 214, 193, 0.4);
-  border-color: rgba(29, 214, 193, 0.55);
+  background: rgba(29, 214, 106, 0.4);
+  border-color: rgba(174, 226, 84, 0.55);
 }
 
 /* RESPONSIVE */
