@@ -96,29 +96,23 @@
 
 .product-media {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
   aspect-ratio: 4 / 3;
   overflow: hidden;
-  background: linear-gradient(
-    180deg,
-    #f7f9fa,
-    #eef2f4
-  ); // fond doux, pas blanc agressif
-}
 
-.product-media img {
-  max-width: 88%;
-  max-height: 88%;
-  object-fit: contain;
-  display: block;
-}
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transform: scale(1.02);
+    transition: transform 0.25s ease;
+  }
 
   &:hover img {
     transform: scale(1.06);
   }
-
+}
 
 /* ✅ badge lisible sur image */
 .product-badge {
@@ -217,9 +211,15 @@
 }
 
 .btn--primary {
-  color: #ffffff !important;
-}
+  color: #fff !important;
+  border-color: rgba(29, 214, 193, 0.65);
+  background: rgba(29, 214, 193, 0.90);
 
+  &:hover {
+    background: rgba(29, 214, 193, 1);
+    border-color: rgba(29, 214, 193, 0.85);
+  }
+}
 
 @media (max-width: 980px) {
   .product-grid {
