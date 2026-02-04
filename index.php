@@ -34,28 +34,78 @@ include __DIR__ . "/includes/header.php";
 </section>
 
 <!-- CAROUSEL -->
-<section class="carou section">
+<section class="home-carousel">
   <div class="container">
-    <div class="carou__wrap" aria-label="Carrousel d'images">
-      <button class="carou__btn carou__btn--prev" type="button" aria-label="Image précédente">
-        ‹
-      </button>
+    <div class="home-carousel__head">
+      <h2>Nos plongées en images</h2>
+      <p>Faites défiler pour découvrir l’ambiance Balidive</p>
+    </div>
 
-      <div class="carou__viewport">
-        <div class="carou__track">
-          <img class="carou__img" src="img/carou1.jpg" alt="carou1" />
-          <img class="carou__img" src="img/carou2.jpg" alt="carou2" />
-          <img class="carou__img" src="img/carou3.jpg" alt="carou3" />
-          <img class="carou__img" src="img/carou4.jpg" alt="carou4" />
-        </div>
+    <div class="home-carousel__wrap">
+      <button class="home-carousel__nav home-carousel__nav--prev" type="button" aria-label="Image précédente">‹</button>
+
+      <div class="home-carousel__track" id="homeCarousel" tabindex="0" aria-label="Carrousel d’images">
+        <figure class="home-carousel__slide">
+          <img src="img/carou1.jpg" alt="Balidive - photo 1" loading="lazy">
+        </figure>
+        <figure class="home-carousel__slide">
+          <img src="img/carou2.jpg" alt="Balidive - photo 2" loading="lazy">
+        </figure>
+        <figure class="home-carousel__slide">
+          <img src="img/carou3.jpg" alt="Balidive - photo 3" loading="lazy">
+        </figure>
+        <figure class="home-carousel__slide">
+          <img src="img/carou4.jpg" alt="Balidive - photo 4" loading="lazy">
+        </figure>
       </div>
 
-      <button class="carou__btn carou__btn--next" type="button" aria-label="Image suivante">
-        ›
-      </button>
+      <button class="home-carousel__nav home-carousel__nav--next" type="button" aria-label="Image suivante">›</button>
+    </div>
+
+    <div class="home-carousel__dots" aria-hidden="true">
+      <span class="home-carousel__dot is-active"></span>
+      <span class="home-carousel__dot"></span>
+      <span class="home-carousel__dot"></span>
+      <span class="home-carousel__dot"></span>
     </div>
   </div>
 </section>
+
+<script>
+(function () {
+  const track = document.getElementById("homeCarousel");
+  if (!track) return;
+
+  const prev = document.querySelector(".home-carousel__nav--prev");
+  const next = document.querySelector(".home-carousel__nav--next");
+  const dots = Array.from(document.querySelectorAll(".home-carousel__dot"));
+
+  function slideWidth() {
+    const first = track.querySelector(".home-carousel__slide");
+    if (!first) return 0;
+    const gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap || 0);
+    return first.getBoundingClientRect().width + gap;
+  }
+
+  function goBy(dir) {
+    track.scrollBy({ left: dir * slideWidth(), behavior: "smooth" });
+  }
+
+  prev?.addEventListener("click", () => goBy(-1));
+  next?.addEventListener("click", () => goBy(1));
+
+  function updateDots() {
+    const w = slideWidth() || 1;
+    const index = Math.round(track.scrollLeft / w);
+    const clamped = Math.max(0, Math.min(dots.length - 1, index));
+    dots.forEach((d, i) => d.classList.toggle("is-active", i === clamped));
+  }
+
+  track.addEventListener("scroll", () => window.requestAnimationFrame(updateDots));
+  window.addEventListener("resize", updateDots);
+  updateDots();
+})();
+</script>
 
 <!-- OFFRES -->
 <section class="offers">
@@ -108,35 +158,5 @@ include __DIR__ . "/includes/header.php";
     </div>
   </div>
 </section>
-
-<!-- JS CAROUSEL (tu peux le laisser ici ou le mettre dans footer.php) -->
-<script>
-  (function () {
-    const wrap = document.querySelector(".carou__wrap");
-    if (!wrap) return;
-
-    const track = wrap.querySelector(".carou__track");
-    const slides = Array.from(wrap.querySelectorAll(".carou__img"));
-    const prevBtn = wrap.querySelector(".carou__btn--prev");
-    const nextBtn = wrap.querySelector(".carou__btn--next");
-
-    let index = 0;
-
-    function goTo(i) {
-      index = (i + slides.length) % slides.length;
-      track.style.transform = `translateX(-${index * 100}%)`;
-    }
-
-    prevBtn.addEventListener("click", () => goTo(index - 1));
-    nextBtn.addEventListener("click", () => goTo(index + 1));
-
-    // clavier gauche/droite quand le bloc est focus
-    wrap.setAttribute("tabindex", "0");
-    wrap.addEventListener("keydown", (e) => {
-      if (e.key === "ArrowLeft") goTo(index - 1);
-      if (e.key === "ArrowRight") goTo(index + 1);
-    });
-  })();
-</script>
 
 <?php include __DIR__ . "/includes/footer.php"; ?>
