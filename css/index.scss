@@ -89,128 +89,6 @@
   object-fit: cover;
 }
 
-/* ===== Home carousel ===== */
-.home-carousel {
-  padding: 2.75rem 0 3.25rem;
-}
-
-.home-carousel__head {
-  text-align: center;
-  margin-bottom: 1.1rem;
-
-  h2 {
-    margin: 0 0 0.35rem;
-    font-size: clamp(1.35rem, 2.2vw, 2rem);
-    font-weight: 800;
-    letter-spacing: 0.2px;
-  }
-
-  p {
-    margin: 0;
-    color: rgba(255, 255, 255, 0.78);
-    font-weight: 600;
-  }
-}
-
-.home-carousel__wrap {
-  position: relative;
-}
-
-.home-carousel__track {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: minmax(260px, 1fr);
-  gap: 1rem;
-
-  overflow-x: auto;
-  padding: 0.2rem 0.2rem 0.7rem;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-  &::-webkit-scrollbar { display: none; }
-
-  outline: none;
-}
-
-.home-carousel__slide {
-  margin: 0;
-  scroll-snap-align: start;
-
-  img {
-    width: 100%;
-    height: 330px;
-    object-fit: cover;
-    border-radius: 22px;
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.26);
-    display: block;
-  }
-}
-
-.home-carousel__nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 2;
-
-  width: 44px;
-  height: 44px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  background: rgba(0, 0, 0, 0.35);
-  backdrop-filter: blur(8px);
-  color: rgba(255, 255, 255, 0.92);
-  font-size: 28px;
-  line-height: 1;
-
-  display: grid;
-  place-items: center;
-  cursor: pointer;
-
-  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
-
-  &:hover {
-    transform: translateY(-50%) scale(1.04);
-    background: rgba(0, 0, 0, 0.48);
-    border-color: rgba(255, 255, 255, 0.32);
-  }
-
-  &:active {
-    transform: translateY(-50%) scale(1.0);
-  }
-}
-
-.home-carousel__nav--prev { left: -8px; }
-.home-carousel__nav--next { right: -8px; }
-
-.home-carousel__dots {
-  margin-top: 0.75rem;
-  display: flex;
-  gap: 0.45rem;
-  justify-content: center;
-}
-
-.home-carousel__dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 0 0 3px rgba(29, 214, 193, 0.08);
-  transition: transform 0.15s ease, background 0.15s ease;
-}
-
-.home-carousel__dot.is-active {
-  background: rgba(255, 255, 255, 0.72);
-  transform: scale(1.15);
-}
-
-@media (max-width: 900px) {
-  .home-carousel__nav { display: none; }
-  .home-carousel__slide img { height: 280px; }
-}
-/* ===== /Home carousel ===== */
 
 .offers {
   position: relative;
@@ -353,4 +231,111 @@
 
 @media (max-width: 900px) {
   .split { grid-template-columns: 1fr; }
+}
+/* ✅ AJOUTS à mettre à la fin de css/index.scss */
+
+/* CAROUSEL */
+.carou {
+  position: relative;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0.25rem 0;
+  outline: none; /* pour le keydown si tu tab dessus */
+
+  &__viewport {
+    overflow: hidden;
+    border-radius: 22px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+    background: rgba(0, 0, 0, 0.18);
+  }
+
+  &__track {
+    display: flex;
+    width: 100%;
+    transition: transform 0.35s ease;
+    will-change: transform;
+  }
+
+  &__slide {
+    flex: 0 0 100%;
+    margin: 0;
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    height: clamp(240px, 45vw, 520px);
+    object-fit: cover;
+  }
+
+  &__btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+
+    width: 46px;
+    height: 46px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.26);
+    background: rgba(0, 0, 0, 0.35);
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 26px;
+    line-height: 1;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+
+    transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+
+    &:hover {
+      transform: translateY(-50%) scale(1.03);
+      background: rgba(0, 0, 0, 0.45);
+      border-color: rgba(255, 255, 255, 0.36);
+    }
+
+    &:active {
+      transform: translateY(-50%) scale(0.98);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  &__btn--prev { left: 10px; }
+  &__btn--next { right: 10px; }
+
+  &__dots {
+    margin-top: 0.8rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.55rem;
+  }
+
+  &__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.18);
+    cursor: pointer;
+    padding: 0;
+    transition: transform 0.15s ease, background 0.15s ease;
+
+    &.is-active {
+      background: rgba(255, 255, 255, 0.75);
+      transform: scale(1.1);
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .carou__btn {
+    width: 42px;
+    height: 42px;
+    font-size: 24px;
+  }
 }

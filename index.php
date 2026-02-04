@@ -33,79 +33,46 @@ include __DIR__ . "/includes/header.php";
   </div>
 </section>
 
-<!-- CAROUSEL -->
-<section class="home-carousel">
+<!-- ✅ CAROUSEL (4 images: carou1 -> carou4) -->
+<section class="section section--full">
   <div class="container">
-    <div class="home-carousel__head">
-      <h2>Nos plongées en images</h2>
-      <p>Faites défiler pour découvrir l’ambiance Balidive</p>
-    </div>
+    <h2 style="text-align:center;margin-bottom:1rem;">Nos spots en images</h2>
 
-    <div class="home-carousel__wrap">
-      <button class="home-carousel__nav home-carousel__nav--prev" type="button" aria-label="Image précédente">‹</button>
+    <div class="carou" aria-label="Carrousel d'images">
+      <button class="carou__btn carou__btn--prev" type="button" aria-label="Image précédente">
+        &#10094;
+      </button>
 
-      <div class="home-carousel__track" id="homeCarousel" tabindex="0" aria-label="Carrousel d’images">
-        <figure class="home-carousel__slide">
-          <img src="img/carou1.jpg" alt="Balidive - photo 1" loading="lazy">
-        </figure>
-        <figure class="home-carousel__slide">
-          <img src="img/carou2.jpg" alt="Balidive - photo 2" loading="lazy">
-        </figure>
-        <figure class="home-carousel__slide">
-          <img src="img/carou3.jpg" alt="Balidive - photo 3" loading="lazy">
-        </figure>
-        <figure class="home-carousel__slide">
-          <img src="img/carou4.jpg" alt="Balidive - photo 4" loading="lazy">
-        </figure>
+      <div class="carou__viewport">
+        <div class="carou__track">
+          <figure class="carou__slide">
+            <img src="img/carou1.jpg" alt="carou1" class="carou__img" />
+          </figure>
+          <figure class="carou__slide">
+            <img src="img/carou2.jpg" alt="carou2" class="carou__img" />
+          </figure>
+          <figure class="carou__slide">
+            <img src="img/carou3.jpg" alt="carou3" class="carou__img" />
+          </figure>
+          <figure class="carou__slide">
+            <img src="img/carou4.jpg" alt="carou4" class="carou__img" />
+          </figure>
+        </div>
       </div>
 
-      <button class="home-carousel__nav home-carousel__nav--next" type="button" aria-label="Image suivante">›</button>
-    </div>
+      <button class="carou__btn carou__btn--next" type="button" aria-label="Image suivante">
+        &#10095;
+      </button>
 
-    <div class="home-carousel__dots" aria-hidden="true">
-      <span class="home-carousel__dot is-active"></span>
-      <span class="home-carousel__dot"></span>
-      <span class="home-carousel__dot"></span>
-      <span class="home-carousel__dot"></span>
+      <div class="carou__dots" role="tablist" aria-label="Pagination du carrousel">
+        <button class="carou__dot is-active" type="button" aria-label="Aller à l'image 1"></button>
+        <button class="carou__dot" type="button" aria-label="Aller à l'image 2"></button>
+        <button class="carou__dot" type="button" aria-label="Aller à l'image 3"></button>
+        <button class="carou__dot" type="button" aria-label="Aller à l'image 4"></button>
+      </div>
     </div>
   </div>
 </section>
-
-<script>
-(function () {
-  const track = document.getElementById("homeCarousel");
-  if (!track) return;
-
-  const prev = document.querySelector(".home-carousel__nav--prev");
-  const next = document.querySelector(".home-carousel__nav--next");
-  const dots = Array.from(document.querySelectorAll(".home-carousel__dot"));
-
-  function slideWidth() {
-    const first = track.querySelector(".home-carousel__slide");
-    if (!first) return 0;
-    const gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap || 0);
-    return first.getBoundingClientRect().width + gap;
-  }
-
-  function goBy(dir) {
-    track.scrollBy({ left: dir * slideWidth(), behavior: "smooth" });
-  }
-
-  prev?.addEventListener("click", () => goBy(-1));
-  next?.addEventListener("click", () => goBy(1));
-
-  function updateDots() {
-    const w = slideWidth() || 1;
-    const index = Math.round(track.scrollLeft / w);
-    const clamped = Math.max(0, Math.min(dots.length - 1, index));
-    dots.forEach((d, i) => d.classList.toggle("is-active", i === clamped));
-  }
-
-  track.addEventListener("scroll", () => window.requestAnimationFrame(updateDots));
-  window.addEventListener("resize", updateDots);
-  updateDots();
-})();
-</script>
 
 <!-- OFFRES -->
 <section class="offers">
@@ -158,5 +125,63 @@ include __DIR__ . "/includes/header.php";
     </div>
   </div>
 </section>
+
+<!-- ✅ JS du carrousel -->
+<script>
+(() => {
+  const root = document.querySelector('.carou');
+  if (!root) return;
+
+  const track = root.querySelector('.carou__track');
+  const slides = Array.from(root.querySelectorAll('.carou__slide'));
+  const prevBtn = root.querySelector('.carou__btn--prev');
+  const nextBtn = root.querySelector('.carou__btn--next');
+  const dots = Array.from(root.querySelectorAll('.carou__dot'));
+
+  let index = 0;
+
+  const update = () => {
+    track.style.transform = `translateX(-${index * 100}%)`;
+    dots.forEach((d, i) => d.classList.toggle('is-active', i === index));
+    prevBtn.disabled = slides.length <= 1;
+    nextBtn.disabled = slides.length <= 1;
+  };
+
+  const go = (i) => {
+    index = (i + slides.length) % slides.length;
+    update();
+  };
+
+  prevBtn.addEventListener('click', () => go(index - 1));
+  nextBtn.addEventListener('click', () => go(index + 1));
+
+  dots.forEach((dot, i) => dot.addEventListener('click', () => go(i)));
+
+  // clavier (quand le carrousel est focus)
+  root.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') go(index - 1);
+    if (e.key === 'ArrowRight') go(index + 1);
+  });
+
+  // swipe mobile
+  let startX = 0;
+  let isDown = false;
+
+  const onDown = (x) => { isDown = true; startX = x; };
+  const onUp = (x) => {
+    if (!isDown) return;
+    isDown = false;
+    const dx = x - startX;
+    if (Math.abs(dx) < 40) return;
+    if (dx > 0) go(index - 1);
+    else go(index + 1);
+  };
+
+  root.addEventListener('touchstart', (e) => onDown(e.touches[0].clientX), { passive: true });
+  root.addEventListener('touchend', (e) => onUp(e.changedTouches[0].clientX));
+
+  update();
+})();
+</script>
 
 <?php include __DIR__ . "/includes/footer.php"; ?>
