@@ -33,6 +33,101 @@ include __DIR__ . "/includes/header.php";
   </div>
 </section>
 
+<!-- CAROUSEL -->
+<section class="home-carousel" aria-label="Galerie BaliDive">
+  <div class="home-carousel__viewport" data-carousel>
+    <div class="home-carousel__track">
+      <figure class="home-carousel__slide">
+        <img src="img/carou1.jpg" alt="BaliDive - Photo 1" loading="lazy">
+      </figure>
+      <figure class="home-carousel__slide">
+        <img src="img/carou2.jpg" alt="BaliDive - Photo 2" loading="lazy">
+      </figure>
+      <figure class="home-carousel__slide">
+        <img src="img/carou3.jpg" alt="BaliDive - Photo 3" loading="lazy">
+      </figure>
+      <figure class="home-carousel__slide">
+        <img src="img/carou4.jpg" alt="BaliDive - Photo 4" loading="lazy">
+      </figure>
+    </div>
+
+    <button class="home-carousel__btn home-carousel__btn--prev" type="button" aria-label="Image précédente" data-prev>
+      ‹
+    </button>
+    <button class="home-carousel__btn home-carousel__btn--next" type="button" aria-label="Image suivante" data-next>
+      ›
+    </button>
+
+    <div class="home-carousel__dots" role="tablist" aria-label="Pagination" data-dots></div>
+  </div>
+</section>
+
+<script>
+(() => {
+  const root = document.querySelector('[data-carousel]');
+  if (!root) return;
+
+  const track = root.querySelector('.home-carousel__track');
+  const slides = Array.from(root.querySelectorAll('.home-carousel__slide'));
+  const btnPrev = root.querySelector('[data-prev]');
+  const btnNext = root.querySelector('[data-next]');
+  const dotsWrap = root.querySelector('[data-dots]');
+
+  let index = 0;
+  let timer = null;
+
+  // Dots
+  const dots = slides.map((_, i) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'home-carousel__dot';
+    b.setAttribute('aria-label', `Aller à l'image ${i + 1}`);
+    b.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(b);
+    return b;
+  });
+
+  function update() {
+    track.style.transform = `translateX(-${index * 100}%)`;
+    dots.forEach((d, i) => d.toggleAttribute('data-active', i === index));
+  }
+
+  function goTo(i) {
+    index = (i + slides.length) % slides.length;
+    update();
+    restart();
+  }
+
+  function next() { goTo(index + 1); }
+  function prev() { goTo(index - 1); }
+
+  btnNext.addEventListener('click', next);
+  btnPrev.addEventListener('click', prev);
+
+  // Auto-play (pause au survol / focus)
+  function start() { timer = setInterval(next, 4500); }
+  function stop() { if (timer) clearInterval(timer); timer = null; }
+  function restart() { stop(); start(); }
+
+  root.addEventListener('mouseenter', stop);
+  root.addEventListener('mouseleave', start);
+  root.addEventListener('focusin', stop);
+  root.addEventListener('focusout', start);
+
+  // Swipe mobile
+  let startX = 0;
+  root.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; }, {passive:true});
+  root.addEventListener('touchend', (e) => {
+    const dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 40) (dx < 0 ? next() : prev());
+  }, {passive:true});
+
+  // Init
+  update();
+  start();
+})();
+</script>
+
 <!-- OFFRES -->
 <section class="offers">
   <div class="offers__shade"></div>

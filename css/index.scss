@@ -231,3 +231,117 @@
 @media (max-width: 900px) {
   .split { grid-template-columns: 1fr; }
 }
+
+/* ========================= */
+/* CAROUSEL HOME (AJOUT)      */
+/* ========================= */
+
+.home-carousel {
+  padding: 0;
+  margin: 0;
+}
+
+.home-carousel__viewport {
+  position: relative;
+  width: 100%;
+  height: clamp(360px, 70svh, 720px);
+  overflow: hidden;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.home-carousel__track {
+  height: 100%;
+  display: flex;
+  transition: transform 450ms ease;
+  will-change: transform;
+}
+
+.home-carousel__slide {
+  flex: 0 0 100%;
+  height: 100%;
+  margin: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transform: scale(1.01);
+  }
+}
+
+.home-carousel__btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(10px);
+  color: rgba(255, 255, 255, 0.92);
+
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+
+  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+
+  &:hover {
+    transform: translateY(-50%) scale(1.03);
+    background: rgba(0, 0, 0, 0.48);
+    border-color: rgba(255, 255, 255, 0.36);
+  }
+
+  &:active {
+    transform: translateY(-50%) scale(1.0);
+  }
+}
+
+.home-carousel__btn--prev { left: 14px; }
+.home-carousel__btn--next { right: 14px; }
+
+.home-carousel__dots {
+  position: absolute;
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+  z-index: 3;
+
+  display: flex;
+  gap: 10px;
+  padding: 8px 10px;
+
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+}
+
+.home-carousel__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: 0;
+  background: rgba(255, 255, 255, 0.45);
+  cursor: pointer;
+
+  &[data-active] {
+    background: rgba(255, 255, 255, 0.92);
+  }
+}
+
+@media (max-width: 700px) {
+  .home-carousel__btn {
+    width: 42px;
+    height: 42px;
+  }
+}
