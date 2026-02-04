@@ -1,6 +1,6 @@
 <?php
 $pageTitle  = "Centre de plongée à Bali | Bali Dive Center";
-$pageCss    = "css/index.scss";
+$pageCss    = "css/index.css";
 $activePage = "index";
 
 include __DIR__ . "/includes/header.php";
@@ -33,15 +33,11 @@ include __DIR__ . "/includes/header.php";
   </div>
 </section>
 
-<!-- ✅ CAROUSEL (4 images: carou1 -> carou4) -->
+<!-- ✅ AJOUT : CAROUSEL (carou1 -> carou4, 1 image visible, défile 1 par 1) -->
 <section class="section section--full">
   <div class="container">
-    <h2 style="text-align:center;margin-bottom:1rem;">Nos spots en images</h2>
-
-    <div class="carou" aria-label="Carrousel d'images">
-      <button class="carou__btn carou__btn--prev" type="button" aria-label="Image précédente">
-        &#10094;
-      </button>
+    <div class="carou" tabindex="0" aria-label="Carrousel d'images">
+      <button class="carou__btn carou__btn--prev" type="button" aria-label="Image précédente">&#10094;</button>
 
       <div class="carou__viewport">
         <div class="carou__track">
@@ -60,16 +56,7 @@ include __DIR__ . "/includes/header.php";
         </div>
       </div>
 
-      <button class="carou__btn carou__btn--next" type="button" aria-label="Image suivante">
-        &#10095;
-      </button>
-
-      <div class="carou__dots" role="tablist" aria-label="Pagination du carrousel">
-        <button class="carou__dot is-active" type="button" aria-label="Aller à l'image 1"></button>
-        <button class="carou__dot" type="button" aria-label="Aller à l'image 2"></button>
-        <button class="carou__dot" type="button" aria-label="Aller à l'image 3"></button>
-        <button class="carou__dot" type="button" aria-label="Aller à l'image 4"></button>
-      </div>
+      <button class="carou__btn carou__btn--next" type="button" aria-label="Image suivante">&#10095;</button>
     </div>
   </div>
 </section>
@@ -126,7 +113,7 @@ include __DIR__ . "/includes/header.php";
   </div>
 </section>
 
-<!-- ✅ JS du carrousel -->
+<!-- ✅ AJOUT : JS CAROUSEL (1 par 1) -->
 <script>
 (() => {
   const root = document.querySelector('.carou');
@@ -136,15 +123,11 @@ include __DIR__ . "/includes/header.php";
   const slides = Array.from(root.querySelectorAll('.carou__slide'));
   const prevBtn = root.querySelector('.carou__btn--prev');
   const nextBtn = root.querySelector('.carou__btn--next');
-  const dots = Array.from(root.querySelectorAll('.carou__dot'));
 
   let index = 0;
 
   const update = () => {
     track.style.transform = `translateX(-${index * 100}%)`;
-    dots.forEach((d, i) => d.classList.toggle('is-active', i === index));
-    prevBtn.disabled = slides.length <= 1;
-    nextBtn.disabled = slides.length <= 1;
   };
 
   const go = (i) => {
@@ -155,8 +138,6 @@ include __DIR__ . "/includes/header.php";
   prevBtn.addEventListener('click', () => go(index - 1));
   nextBtn.addEventListener('click', () => go(index + 1));
 
-  dots.forEach((dot, i) => dot.addEventListener('click', () => go(i)));
-
   // clavier (quand le carrousel est focus)
   root.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowLeft') go(index - 1);
@@ -165,20 +146,22 @@ include __DIR__ . "/includes/header.php";
 
   // swipe mobile
   let startX = 0;
-  let isDown = false;
+  let down = false;
 
-  const onDown = (x) => { isDown = true; startX = x; };
-  const onUp = (x) => {
-    if (!isDown) return;
-    isDown = false;
-    const dx = x - startX;
+  root.addEventListener('touchstart', (e) => {
+    down = true;
+    startX = e.touches[0].clientX;
+  }, { passive: true });
+
+  root.addEventListener('touchend', (e) => {
+    if (!down) return;
+    down = false;
+    const endX = e.changedTouches[0].clientX;
+    const dx = endX - startX;
     if (Math.abs(dx) < 40) return;
     if (dx > 0) go(index - 1);
     else go(index + 1);
-  };
-
-  root.addEventListener('touchstart', (e) => onDown(e.touches[0].clientX), { passive: true });
-  root.addEventListener('touchend', (e) => onUp(e.changedTouches[0].clientX));
+  });
 
   update();
 })();
