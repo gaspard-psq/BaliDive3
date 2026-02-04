@@ -33,100 +33,37 @@ include __DIR__ . "/includes/header.php";
   </div>
 </section>
 
-<!-- CAROUSEL -->
-<section class="home-carousel" aria-label="Galerie BaliDive">
-  <div class="home-carousel__viewport" data-carousel>
-    <div class="home-carousel__track">
-      <figure class="home-carousel__slide">
-        <img src="img/carou1.jpg" alt="BaliDive - Photo 1" loading="lazy">
-      </figure>
-      <figure class="home-carousel__slide">
-        <img src="img/carou2.jpg" alt="BaliDive - Photo 2" loading="lazy">
-      </figure>
-      <figure class="home-carousel__slide">
-        <img src="img/carou3.jpg" alt="BaliDive - Photo 3" loading="lazy">
-      </figure>
-      <figure class="home-carousel__slide">
-        <img src="img/carou4.jpg" alt="BaliDive - Photo 4" loading="lazy">
-      </figure>
+<!-- CARROUSEL -->
+<section class="carousel" aria-label="Galerie BaliDive">
+  <div class="container">
+    <div class="carousel__frame" role="region" aria-roledescription="carrousel" aria-label="Galerie photos">
+      <button class="carousel__btn carousel__btn--prev" type="button" aria-label="Image précédente">
+        ‹
+      </button>
+
+      <div class="carousel__viewport" tabindex="0">
+        <div class="carousel__track" id="carouselTrack">
+          <figure class="carousel__slide">
+            <img src="img/carou1.jpg" alt="Photo BaliDive 1" />
+          </figure>
+          <figure class="carousel__slide">
+            <img src="img/carou2.jpg" alt="Photo BaliDive 2" />
+          </figure>
+          <figure class="carousel__slide">
+            <img src="img/carou3.jpg" alt="Photo BaliDive 3" />
+          </figure>
+          <figure class="carousel__slide">
+            <img src="img/carou4.jpg" alt="Photo BaliDive 4" />
+          </figure>
+        </div>
+      </div>
+
+      <button class="carousel__btn carousel__btn--next" type="button" aria-label="Image suivante">
+        ›
+      </button>
     </div>
-
-    <button class="home-carousel__btn home-carousel__btn--prev" type="button" aria-label="Image précédente" data-prev>
-      ‹
-    </button>
-    <button class="home-carousel__btn home-carousel__btn--next" type="button" aria-label="Image suivante" data-next>
-      ›
-    </button>
-
-    <div class="home-carousel__dots" role="tablist" aria-label="Pagination" data-dots></div>
   </div>
 </section>
-
-<script>
-(() => {
-  const root = document.querySelector('[data-carousel]');
-  if (!root) return;
-
-  const track = root.querySelector('.home-carousel__track');
-  const slides = Array.from(root.querySelectorAll('.home-carousel__slide'));
-  const btnPrev = root.querySelector('[data-prev]');
-  const btnNext = root.querySelector('[data-next]');
-  const dotsWrap = root.querySelector('[data-dots]');
-
-  let index = 0;
-  let timer = null;
-
-  // Dots
-  const dots = slides.map((_, i) => {
-    const b = document.createElement('button');
-    b.type = 'button';
-    b.className = 'home-carousel__dot';
-    b.setAttribute('aria-label', `Aller à l'image ${i + 1}`);
-    b.addEventListener('click', () => goTo(i));
-    dotsWrap.appendChild(b);
-    return b;
-  });
-
-  function update() {
-    track.style.transform = `translateX(-${index * 100}%)`;
-    dots.forEach((d, i) => d.toggleAttribute('data-active', i === index));
-  }
-
-  function goTo(i) {
-    index = (i + slides.length) % slides.length;
-    update();
-    restart();
-  }
-
-  function next() { goTo(index + 1); }
-  function prev() { goTo(index - 1); }
-
-  btnNext.addEventListener('click', next);
-  btnPrev.addEventListener('click', prev);
-
-  // Auto-play (pause au survol / focus)
-  function start() { timer = setInterval(next, 4500); }
-  function stop() { if (timer) clearInterval(timer); timer = null; }
-  function restart() { stop(); start(); }
-
-  root.addEventListener('mouseenter', stop);
-  root.addEventListener('mouseleave', start);
-  root.addEventListener('focusin', stop);
-  root.addEventListener('focusout', start);
-
-  // Swipe mobile
-  let startX = 0;
-  root.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; }, {passive:true});
-  root.addEventListener('touchend', (e) => {
-    const dx = e.changedTouches[0].clientX - startX;
-    if (Math.abs(dx) > 40) (dx < 0 ? next() : prev());
-  }, {passive:true});
-
-  // Init
-  update();
-  start();
-})();
-</script>
 
 <!-- OFFRES -->
 <section class="offers">
@@ -179,5 +116,53 @@ include __DIR__ . "/includes/header.php";
     </div>
   </div>
 </section>
+
+<script>
+(function () {
+  const track = document.getElementById("carouselTrack");
+  if (!track) return;
+
+  const slides = Array.from(track.querySelectorAll(".carousel__slide"));
+  const prev = document.querySelector(".carousel__btn--prev");
+  const next = document.querySelector(".carousel__btn--next");
+  const viewport = document.querySelector(".carousel__viewport");
+
+  let index = 0;
+
+  function setIndex(i) {
+    index = (i + slides.length) % slides.length;
+    track.style.transform = `translateX(${-index * 100}%)`;
+  }
+
+  prev && prev.addEventListener("click", () => setIndex(index - 1));
+  next && next.addEventListener("click", () => setIndex(index + 1));
+
+  viewport && viewport.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") setIndex(index - 1);
+    if (e.key === "ArrowRight") setIndex(index + 1);
+  });
+
+  let startX = 0;
+  let dx = 0;
+
+  viewport && viewport.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+    dx = 0;
+  }, { passive: true });
+
+  viewport && viewport.addEventListener("touchmove", (e) => {
+    dx = e.touches[0].clientX - startX;
+  }, { passive: true });
+
+  viewport && viewport.addEventListener("touchend", () => {
+    if (Math.abs(dx) > 40) {
+      if (dx < 0) setIndex(index + 1);
+      else setIndex(index - 1);
+    }
+  });
+
+  setIndex(0);
+})();
+</script>
 
 <?php include __DIR__ . "/includes/footer.php"; ?>
