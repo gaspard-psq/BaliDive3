@@ -1,6 +1,6 @@
 <?php
 $pageTitle  = "Centre de plongée à Bali | Bali Dive Center";
-$pageCss    = "css/index.css";
+$pageCss    = "css/index.scss";
 $activePage = "index";
 
 include __DIR__ . "/includes/header.php";
