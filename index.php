@@ -1,6 +1,6 @@
 <?php
 $pageTitle  = "Centre de plongée à Bali | Bali Dive Center";
-$pageCss    = "css/index.scss";
+$pageCss    = "css/index.css";
 $activePage = "index";
 
 include __DIR__ . "/includes/header.php";
@@ -29,34 +29,6 @@ include __DIR__ . "/includes/header.php";
     </div>
     <div class="split__media">
       <img src="img/plongee1.jpg" alt="Plongée à Bali" class="split__img" />
-    </div>
-  </div>
-</section>
-
-<!-- ✅ AJOUT : CAROUSEL (carou1 -> carou4, 1 image visible, défile 1 par 1) -->
-<section class="section section--full">
-  <div class="container">
-    <div class="carou" tabindex="0" aria-label="Carrousel d'images">
-      <button class="carou__btn carou__btn--prev" type="button" aria-label="Image précédente">&#10094;</button>
-
-      <div class="carou__viewport">
-        <div class="carou__track">
-          <figure class="carou__slide">
-            <img src="img/carou1.jpg" alt="carou1" class="carou__img" />
-          </figure>
-          <figure class="carou__slide">
-            <img src="img/carou2.jpg" alt="carou2" class="carou__img" />
-          </figure>
-          <figure class="carou__slide">
-            <img src="img/carou3.jpg" alt="carou3" class="carou__img" />
-          </figure>
-          <figure class="carou__slide">
-            <img src="img/carou4.jpg" alt="carou4" class="carou__img" />
-          </figure>
-        </div>
-      </div>
-
-      <button class="carou__btn carou__btn--next" type="button" aria-label="Image suivante">&#10095;</button>
     </div>
   </div>
 </section>
@@ -112,59 +84,5 @@ include __DIR__ . "/includes/header.php";
     </div>
   </div>
 </section>
-
-<!-- ✅ AJOUT : JS CAROUSEL (1 par 1) -->
-<script>
-(() => {
-  const root = document.querySelector('.carou');
-  if (!root) return;
-
-  const track = root.querySelector('.carou__track');
-  const slides = Array.from(root.querySelectorAll('.carou__slide'));
-  const prevBtn = root.querySelector('.carou__btn--prev');
-  const nextBtn = root.querySelector('.carou__btn--next');
-
-  let index = 0;
-
-  const update = () => {
-    track.style.transform = `translateX(-${index * 100}%)`;
-  };
-
-  const go = (i) => {
-    index = (i + slides.length) % slides.length;
-    update();
-  };
-
-  prevBtn.addEventListener('click', () => go(index - 1));
-  nextBtn.addEventListener('click', () => go(index + 1));
-
-  // clavier (quand le carrousel est focus)
-  root.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft') go(index - 1);
-    if (e.key === 'ArrowRight') go(index + 1);
-  });
-
-  // swipe mobile
-  let startX = 0;
-  let down = false;
-
-  root.addEventListener('touchstart', (e) => {
-    down = true;
-    startX = e.touches[0].clientX;
-  }, { passive: true });
-
-  root.addEventListener('touchend', (e) => {
-    if (!down) return;
-    down = false;
-    const endX = e.changedTouches[0].clientX;
-    const dx = endX - startX;
-    if (Math.abs(dx) < 40) return;
-    if (dx > 0) go(index - 1);
-    else go(index + 1);
-  });
-
-  update();
-})();
-</script>
 
 <?php include __DIR__ . "/includes/footer.php"; ?>
