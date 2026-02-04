@@ -33,32 +33,24 @@ include __DIR__ . "/includes/header.php";
   </div>
 </section>
 
-<!-- CARROUSEL -->
-<section class="carousel" aria-label="Galerie BaliDive">
+<!-- CAROUSEL -->
+<section class="carou section">
   <div class="container">
-    <div class="carousel__frame" role="region" aria-roledescription="carrousel" aria-label="Galerie photos">
-      <button class="carousel__btn carousel__btn--prev" type="button" aria-label="Image précédente">
+    <div class="carou__wrap" aria-label="Carrousel d'images">
+      <button class="carou__btn carou__btn--prev" type="button" aria-label="Image précédente">
         ‹
       </button>
 
-      <div class="carousel__viewport" tabindex="0">
-        <div class="carousel__track" id="carouselTrack">
-          <figure class="carousel__slide">
-            <img src="img/carou1.jpg" alt="Photo BaliDive 1" />
-          </figure>
-          <figure class="carousel__slide">
-            <img src="img/carou2.jpg" alt="Photo BaliDive 2" />
-          </figure>
-          <figure class="carousel__slide">
-            <img src="img/carou3.jpg" alt="Photo BaliDive 3" />
-          </figure>
-          <figure class="carousel__slide">
-            <img src="img/carou4.jpg" alt="Photo BaliDive 4" />
-          </figure>
+      <div class="carou__viewport">
+        <div class="carou__track">
+          <img class="carou__img" src="img/carou1.jpg" alt="carou1" />
+          <img class="carou__img" src="img/carou2.jpg" alt="carou2" />
+          <img class="carou__img" src="img/carou3.jpg" alt="carou3" />
+          <img class="carou__img" src="img/carou4.jpg" alt="carou4" />
         </div>
       </div>
 
-      <button class="carousel__btn carousel__btn--next" type="button" aria-label="Image suivante">
+      <button class="carou__btn carou__btn--next" type="button" aria-label="Image suivante">
         ›
       </button>
     </div>
@@ -117,52 +109,34 @@ include __DIR__ . "/includes/header.php";
   </div>
 </section>
 
+<!-- JS CAROUSEL (tu peux le laisser ici ou le mettre dans footer.php) -->
 <script>
-(function () {
-  const track = document.getElementById("carouselTrack");
-  if (!track) return;
+  (function () {
+    const wrap = document.querySelector(".carou__wrap");
+    if (!wrap) return;
 
-  const slides = Array.from(track.querySelectorAll(".carousel__slide"));
-  const prev = document.querySelector(".carousel__btn--prev");
-  const next = document.querySelector(".carousel__btn--next");
-  const viewport = document.querySelector(".carousel__viewport");
+    const track = wrap.querySelector(".carou__track");
+    const slides = Array.from(wrap.querySelectorAll(".carou__img"));
+    const prevBtn = wrap.querySelector(".carou__btn--prev");
+    const nextBtn = wrap.querySelector(".carou__btn--next");
 
-  let index = 0;
+    let index = 0;
 
-  function setIndex(i) {
-    index = (i + slides.length) % slides.length;
-    track.style.transform = `translateX(${-index * 100}%)`;
-  }
-
-  prev && prev.addEventListener("click", () => setIndex(index - 1));
-  next && next.addEventListener("click", () => setIndex(index + 1));
-
-  viewport && viewport.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowLeft") setIndex(index - 1);
-    if (e.key === "ArrowRight") setIndex(index + 1);
-  });
-
-  let startX = 0;
-  let dx = 0;
-
-  viewport && viewport.addEventListener("touchstart", (e) => {
-    startX = e.touches[0].clientX;
-    dx = 0;
-  }, { passive: true });
-
-  viewport && viewport.addEventListener("touchmove", (e) => {
-    dx = e.touches[0].clientX - startX;
-  }, { passive: true });
-
-  viewport && viewport.addEventListener("touchend", () => {
-    if (Math.abs(dx) > 40) {
-      if (dx < 0) setIndex(index + 1);
-      else setIndex(index - 1);
+    function goTo(i) {
+      index = (i + slides.length) % slides.length;
+      track.style.transform = `translateX(-${index * 100}%)`;
     }
-  });
 
-  setIndex(0);
-})();
+    prevBtn.addEventListener("click", () => goTo(index - 1));
+    nextBtn.addEventListener("click", () => goTo(index + 1));
+
+    // clavier gauche/droite quand le bloc est focus
+    wrap.setAttribute("tabindex", "0");
+    wrap.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") goTo(index - 1);
+      if (e.key === "ArrowRight") goTo(index + 1);
+    });
+  })();
 </script>
 
 <?php include __DIR__ . "/includes/footer.php"; ?>
