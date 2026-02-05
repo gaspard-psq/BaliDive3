@@ -23,17 +23,29 @@ $products = [
   "offre-premium" => ["name"=>"Offre premium","price"=>249.00],
 ];
 
+$maskColors = ["noir", "bleu", "rouge", "vert"];
+
 if (!isset($_SESSION["cart"])) $_SESSION["cart"] = [];
 
 $action = $_POST["action"] ?? $_GET["action"] ?? "";
-$id = $_POST["id"] ?? $_GET["id"] ?? "";
+$id     = $_POST["id"] ?? $_GET["id"] ?? "";
+
+/* Optionnel : si un jour tu veux ajouter une couleur depuis le catalogue */
+$color  = $_POST["color"] ?? $_GET["color"] ?? "";
 
 if ($action !== "add" || !isset($products[$id])) {
   echo json_encode(["ok"=>false,"message"=>"Action invalide."]);
   exit;
 }
 
-$_SESSION["cart"][$id] = ($_SESSION["cart"][$id] ?? 0) + 1;
+/* ✅ Gestion couleur uniquement pour mask-aqua */
+$key = $id;
+if ($id === "mask-aqua") {
+  $color = in_array($color, $maskColors, true) ? $color : "noir"; // couleur par défaut
+  $key = $id . "|" . $color;
+}
+
+$_SESSION["cart"][$key] = ($_SESSION["cart"][$key] ?? 0) + 1;
 
 echo json_encode([
   "ok" => true,

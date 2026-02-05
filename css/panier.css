@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* css/panier.scss */
 .cart-hero {
   position: relative;
@@ -127,6 +128,67 @@
   font-weight: 700;
 }
 
+/* ✅ CHANGER COULEUR (uniquement Masque AquaView) */
+.color-switch {
+  margin-top: 0.55rem;
+  display: inline-block;
+}
+
+.color-switch__summary {
+  list-style: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+  font-weight: 900;
+  letter-spacing: 0.15px;
+  color: rgba(255, 255, 255, 0.92);
+  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+}
+.color-switch__summary:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+.color-switch[open] .color-switch__summary {
+  background: rgba(29, 214, 193, 0.14);
+  border-color: rgba(29, 214, 193, 0.35);
+}
+
+.color-switch__options {
+  margin-top: 0.6rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.color-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.1px;
+}
+.color-chip:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.28);
+}
+.color-chip.is-active {
+  border-color: rgba(29, 214, 193, 0.55);
+  background: rgba(29, 214, 193, 0.18);
+}
+
+/* Quantité */
 .qty {
   display: inline-flex;
   align-items: center;

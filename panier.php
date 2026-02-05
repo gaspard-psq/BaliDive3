@@ -15,12 +15,50 @@ $products = [
   "postcards" => ["name"=>"Cartes postales “Bali Underwater”","price"=>9.90],
   "bracelet-coral" => ["name"=>"Bracelet “Coral”","price"=>12.00],
   "mug-dive" => ["name"=>"Mug “Dive More”","price"=>14.90],
+
   "offre-essentiel" => ["name" => "Offre essentiel", "price" => 89.00],
   "offre-avance"   => ["name" => "Offre avancé",   "price" => 149.00],
   "offre-premium"  => ["name" => "Offre premium",  "price" => 249.00],
 ];
 
+$maskColors = [
+  "noir"  => "Noir",
+  "bleu"  => "Bleu",
+  "rouge" => "Rouge",
+  "vert"  => "Vert",
+];
+
 if (!isset($_SESSION["cart"])) $_SESSION["cart"] = [];
+
+/* Helpers */
+function parse_cart_key(string $key): array {
+  // retourne [baseId, color|null]
+  if (strpos($key, "|") !== false) {
+    $parts = explode("|", $key, 2);
+    return [$parts[0], $parts[1] !== "" ? $parts[1] : null];
+  }
+  return [$key, null];
+}
+
+function normalize_cart_key(string $key, array $maskColors): string {
+  // si on a "mask-aqua" sans couleur -> on force "mask-aqua|noir"
+  [$base, $color] = parse_cart_key($key);
+  if ($base === "mask-aqua") {
+    if (!$color || !isset($maskColors[$color])) $color = "noir";
+    return $base . "|" . $color;
+  }
+  return $base;
+}
+
+/* normalisation du panier (au cas où un ancien panier contient mask-aqua sans couleur) */
+if (!empty($_SESSION["cart"])) {
+  $newCart = [];
+  foreach ($_SESSION["cart"] as $k => $qty) {
+    $nk = normalize_cart_key((string)$k, $maskColors);
+    $newCart[$nk] = ($newCart[$nk] ?? 0) + (int)$qty;
+  }
+  $_SESSION["cart"] = $newCart;
+}
 
 $allowedBack = ["index.php","offres.php","catalogue.php","contact.php","produit.php","panier.php"];
 
@@ -43,36 +81,89 @@ function safe_back_url(array $allowedBack): string {
   return "catalogue.php";
 }
 
-if (isset($_GET["add"]) && isset($products[$_GET["add"]])) {
-  $id = $_GET["add"];
-  $_SESSION["cart"][$id] = ($_SESSION["cart"][$id] ?? 0) + 1;
-  $_SESSION["flash"] = "✅ “" . $products[$id]["name"] . "” a été ajouté au panier.";
-  header("Location: " . safe_back_url($allowedBack));
+/* ✅ AJOUT depuis URL (si tu utilises ?add=...) */
+if (isset($_GET["add"])) {
+  $incoming = (string)$_GET["add"];
+  [$base, $color] = parse_cart_key($incoming);
+
+  if (isset($products[$base])) {
+    $key = $incoming;
+
+    if ($base === "mask-aqua") {
+      $color = isset($maskColors[$color]) ? $color : "noir";
+      $key = $base . "|" . $color;
+    } else {
+      $key = $base;
+    }
+
+    $_SESSION["cart"][$key] = ($_SESSION["cart"][$key] ?? 0) + 1;
+    $_SESSION["flash"] = "✅ “" . $products[$base]["name"] . "” a été ajouté au panier.";
+    header("Location: " . safe_back_url($allowedBack));
+    exit;
+  }
+}
+
+/* ✅ CHANGER COULEUR (uniquement mask-aqua) */
+if (isset($_GET["set_color"]) && isset($_GET["id"])) {
+  $newColor = (string)$_GET["set_color"];
+  $oldKey = (string)$_GET["id"];
+
+  [$base, $color] = parse_cart_key($oldKey);
+  if ($base === "mask-aqua" && isset($maskColors[$newColor]) && isset($_SESSION["cart"][$oldKey])) {
+    $qty = (int)$_SESSION["cart"][$oldKey];
+    unset($_SESSION["cart"][$oldKey]);
+
+    $newKey = $base . "|" . $newColor;
+    $_SESSION["cart"][$newKey] = ($_SESSION["cart"][$newKey] ?? 0) + $qty;
+
+    $_SESSION["flash"] = "🎨 Couleur du masque mise à jour : " . $maskColors[$newColor] . ".";
+  }
+
+  header("Location: panier.php");
   exit;
 }
 
+/* ✅ SUPPRESSION */
 if (isset($_GET["remove"])) {
-  unset($_SESSION["cart"][$_GET["remove"]]);
+  $key = (string)$_GET["remove"];
+  unset($_SESSION["cart"][$key]);
   $_SESSION["flash"] = "🗑️ Article supprimé du panier.";
   header("Location: panier.php");
   exit;
 }
 
+/* ✅ -1 */
 if (isset($_GET["dec"]) && isset($_SESSION["cart"][$_GET["dec"]])) {
-  $id = $_GET["dec"];
-  $_SESSION["cart"][$id] -= 1;
-  if ($_SESSION["cart"][$id] <= 0) unset($_SESSION["cart"][$id]);
+  $key = (string)$_GET["dec"];
+  $_SESSION["cart"][$key] -= 1;
+  if ($_SESSION["cart"][$key] <= 0) unset($_SESSION["cart"][$key]);
   header("Location: panier.php");
   exit;
 }
 
-if (isset($_GET["inc"]) && isset($products[$_GET["inc"]])) {
-  $id = $_GET["inc"];
-  $_SESSION["cart"][$id] = ($_SESSION["cart"][$id] ?? 0) + 1;
+/* ✅ +1 (valide seulement si produit de base existe) */
+if (isset($_GET["inc"])) {
+  $key = (string)$_GET["inc"];
+  [$base, $color] = parse_cart_key($key);
+
+  if (isset($products[$base])) {
+    $realKey = $key;
+
+    if ($base === "mask-aqua") {
+      $color = isset($maskColors[$color]) ? $color : "noir";
+      $realKey = $base . "|" . $color;
+    } else {
+      $realKey = $base;
+    }
+
+    $_SESSION["cart"][$realKey] = ($_SESSION["cart"][$realKey] ?? 0) + 1;
+  }
+
   header("Location: panier.php");
   exit;
 }
 
+/* ✅ VIDER */
 if (isset($_GET["clear"])) {
   $_SESSION["cart"] = [];
   $_SESSION["flash"] = "🧹 Panier vidé.";
@@ -85,8 +176,8 @@ $cartCount = array_sum($_SESSION["cart"]);
 /* variables header */
 $pageTitle  = "Panier | Bali Dive Center";
 $pageCss    = "css/panier.css";
-$activePage = "";            // pas de lien "Panier" dans le menu principal
-$showCartPill = true;        // on affiche le badge panier
+$activePage = "";
+$showCartPill = true;
 
 include __DIR__ . "/includes/header.php";
 ?>
@@ -127,24 +218,50 @@ include __DIR__ . "/includes/header.php";
             </thead>
             <tbody>
               <?php $total = 0; ?>
-              <?php foreach ($_SESSION["cart"] as $id => $qty): ?>
-                <?php if (!isset($products[$id])) continue; ?>
+              <?php foreach ($_SESSION["cart"] as $key => $qty): ?>
                 <?php
-                  $p = $products[$id];
-                  $line = $p["price"] * $qty;
+                  $key = (string)$key;
+                  [$baseId, $color] = parse_cart_key($key);
+                  if (!isset($products[$baseId])) continue;
+
+                  $p = $products[$baseId];
+                  $line = $p["price"] * (int)$qty;
                   $total += $line;
+
+                  $displayName = $p["name"];
+                  if ($baseId === "mask-aqua") {
+                    $color = isset($maskColors[$color]) ? $color : "noir";
+                    $displayName .= " — Couleur : " . $maskColors[$color];
+                  }
                 ?>
                 <tr>
                   <td class="prod">
-                    <div class="prod__name"><?php echo htmlspecialchars($p["name"]); ?></div>
-                    <div class="prod__id"><?php echo htmlspecialchars($id); ?></div>
+                    <div class="prod__name"><?php echo htmlspecialchars($displayName); ?></div>
+                    <div class="prod__id"><?php echo htmlspecialchars($key); ?></div>
+
+                    <?php if ($baseId === "mask-aqua"): ?>
+                      <details class="color-switch">
+                        <summary class="color-switch__summary">Changer la couleur</summary>
+                        <div class="color-switch__options">
+                          <?php foreach ($maskColors as $slug => $label): ?>
+                            <a
+                              class="color-chip <?php echo ($slug === $color) ? 'is-active' : ''; ?>"
+                              href="panier.php?set_color=<?php echo urlencode($slug); ?>&id=<?php echo urlencode($key); ?>"
+                              aria-label="<?php echo htmlspecialchars($label); ?>"
+                            >
+                              <?php echo htmlspecialchars($label); ?>
+                            </a>
+                          <?php endforeach; ?>
+                        </div>
+                      </details>
+                    <?php endif; ?>
                   </td>
 
                   <td class="t-center">
                     <div class="qty">
-                      <a class="qty__btn" href="panier.php?dec=<?php echo urlencode($id); ?>" aria-label="Diminuer">−</a>
+                      <a class="qty__btn" href="panier.php?dec=<?php echo urlencode($key); ?>" aria-label="Diminuer">−</a>
                       <span class="qty__val"><?php echo (int)$qty; ?></span>
-                      <a class="qty__btn" href="panier.php?inc=<?php echo urlencode($id); ?>" aria-label="Augmenter">+</a>
+                      <a class="qty__btn" href="panier.php?inc=<?php echo urlencode($key); ?>" aria-label="Augmenter">+</a>
                     </div>
                   </td>
 
@@ -152,7 +269,7 @@ include __DIR__ . "/includes/header.php";
                   <td class="t-right"><?php echo number_format($line, 2, ",", " "); ?> €</td>
 
                   <td class="t-center">
-                    <a class="remove" href="panier.php?remove=<?php echo urlencode($id); ?>" aria-label="Supprimer">✕</a>
+                    <a class="remove" href="panier.php?remove=<?php echo urlencode($key); ?>" aria-label="Supprimer">✕</a>
                   </td>
                 </tr>
               <?php endforeach; ?>
