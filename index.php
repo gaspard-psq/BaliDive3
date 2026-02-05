@@ -55,9 +55,6 @@ include __DIR__ . "/includes/header.php";
             <img src="img/carou4.jpg" alt="Plongée - récifs" loading="lazy" />
           </article>
 
-          <article class="slide">
-            <img src="img/carou5.png" alt="Vue - Bali" loading="lazy" />
-          </article>
 
           <article class="slide">
             <img src="img/carou2.jpg" alt="Matériel - palmes" loading="lazy" />
