@@ -33,6 +33,55 @@ include __DIR__ . "/includes/header.php";
   </div>
 </section>
 
+<!-- SLIDESHOW -->
+<section class="slideshow" aria-label="Galerie photos">
+  <div class="slideshow__shade" aria-hidden="true"></div>
+
+  <div class="container slideshow__content">
+    <div class="slideshow__intro">
+      <h2>Nos moments à Bali</h2>
+      <p>Quelques images pour vous mettre dans l’ambiance avant de choisir votre offre.</p>
+    </div>
+
+    <div class="slideshow__wrap">
+      <button class="slideshow__arrow slideshow__arrow--left" type="button" aria-label="Image précédente">
+        ‹
+      </button>
+
+      <div class="slideshow__viewport" id="slideshowViewport">
+        <div class="slideshow__track" id="slideshowTrack">
+          <!-- Utilise des images qui existent déjà dans ton dossier img/ -->
+          <article class="slide">
+            <img src="img/plongee1.jpg" alt="Plongée - récifs" loading="lazy" />
+          </article>
+
+          <article class="slide">
+            <img src="img/vue.png" alt="Vue - Bali" loading="lazy" />
+          </article>
+
+          <article class="slide">
+            <img src="img/palme2.jpg" alt="Matériel - palmes" loading="lazy" />
+          </article>
+
+          <article class="slide">
+            <img src="img/masque.jpg" alt="Matériel - masque" loading="lazy" />
+          </article>
+
+          <article class="slide">
+            <img src="img/rashguard.jpg" alt="Rashguard" loading="lazy" />
+          </article>
+        </div>
+      </div>
+
+      <button class="slideshow__arrow slideshow__arrow--right" type="button" aria-label="Image suivante">
+        ›
+      </button>
+    </div>
+
+    <div class="slideshow__dots" id="slideshowDots" aria-label="Pagination du slideshow"></div>
+  </div>
+</section>
+
 <!-- OFFRES -->
 <section class="offers">
   <div class="offers__shade"></div>
@@ -84,5 +133,105 @@ include __DIR__ . "/includes/header.php";
     </div>
   </div>
 </section>
+
+<script>
+  (function () {
+    const wrap = document.querySelector(".slideshow__wrap");
+    const viewport = document.getElementById("slideshowViewport");
+    const track = document.getElementById("slideshowTrack");
+    const dotsWrap = document.getElementById("slideshowDots");
+    if (!wrap || !viewport || !track || !dotsWrap) return;
+
+    const btnPrev = wrap.querySelector(".slideshow__arrow--left");
+    const btnNext = wrap.querySelector(".slideshow__arrow--right");
+    const slides = Array.from(track.querySelectorAll(".slide"));
+    if (!slides.length) return;
+
+    let index = 0;
+    let slideW = 0;
+
+    function measure() {
+      slideW = viewport.clientWidth;
+      track.style.transform = "translateX(" + (-index * slideW) + "px)";
+    }
+
+    function clamp(i) {
+      if (i < 0) return 0;
+      if (i > slides.length - 1) return slides.length - 1;
+      return i;
+    }
+
+    function goTo(i) {
+      index = clamp(i);
+      track.style.transform = "translateX(" + (-index * slideW) + "px)";
+      updateDots();
+      updateArrows();
+    }
+
+    function updateArrows() {
+      if (btnPrev) btnPrev.disabled = (index === 0);
+      if (btnNext) btnNext.disabled = (index === slides.length - 1);
+    }
+
+    function buildDots() {
+      dotsWrap.innerHTML = "";
+      slides.forEach((_, i) => {
+        const b = document.createElement("button");
+        b.type = "button";
+        b.className = "slideshow__dot";
+        b.setAttribute("aria-label", "Aller à l'image " + (i + 1));
+        b.addEventListener("click", () => goTo(i));
+        dotsWrap.appendChild(b);
+      });
+    }
+
+    function updateDots() {
+      const dots = Array.from(dotsWrap.querySelectorAll(".slideshow__dot"));
+      dots.forEach((d, i) => d.classList.toggle("is-active", i === index));
+    }
+
+    function next() { goTo(index + 1); }
+    function prev() { goTo(index - 1); }
+
+    if (btnNext) btnNext.addEventListener("click", next);
+    if (btnPrev) btnPrev.addEventListener("click", prev);
+
+    document.addEventListener("keydown", (e) => {
+      // navigation clavier quand on est sur la page
+      if (e.key === "ArrowRight") next();
+      if (e.key === "ArrowLeft") prev();
+    });
+
+    // init
+    buildDots();
+    measure();
+    updateDots();
+    updateArrows();
+
+    window.addEventListener("resize", () => {
+      // recalcul simple (sans jitter)
+      measure();
+    });
+
+    // swipe mobile (facultatif mais pratique)
+    let startX = 0;
+    let isDown = false;
+
+    viewport.addEventListener("pointerdown", (e) => {
+      isDown = true;
+      startX = e.clientX;
+      viewport.setPointerCapture(e.pointerId);
+    });
+
+    viewport.addEventListener("pointerup", (e) => {
+      if (!isDown) return;
+      isDown = false;
+      const dx = e.clientX - startX;
+      if (Math.abs(dx) < 40) return;
+      if (dx < 0) next();
+      else prev();
+    });
+  })();
+</script>
 
 <?php include __DIR__ . "/includes/footer.php"; ?>
