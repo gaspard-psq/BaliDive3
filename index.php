@@ -56,7 +56,7 @@ include __DIR__ . "/includes/header.php";
           </article>
 
           <article class="slide">
-            <img src="img/carou1.png" alt="Vue - Bali" loading="lazy" />
+            <img src="img/carou5.png" alt="Vue - Bali" loading="lazy" />
           </article>
 
           <article class="slide">
@@ -64,7 +64,7 @@ include __DIR__ . "/includes/header.php";
           </article>
 
           <article class="slide">
-            <img src="img/carou3.jpg" alt="Matériel - masque" loading="lazy" />
+            <img src="img/carou6.jpg" alt="Matériel - masque" loading="lazy" />
           </article>
 
 
