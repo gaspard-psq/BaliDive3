@@ -52,19 +52,19 @@ include __DIR__ . "/includes/header.php";
         <div class="slideshow__track" id="slideshowTrack">
           <!-- Utilise des images qui existent déjà dans ton dossier img/ -->
           <article class="slide">
-            <img src="img/plongee1.jpg" alt="Plongée - récifs" loading="lazy" />
+            <img src="img/carou4.jpg" alt="Plongée - récifs" loading="lazy" />
           </article>
 
           <article class="slide">
-            <img src="img/vue.png" alt="Vue - Bali" loading="lazy" />
+            <img src="img/carou1.png" alt="Vue - Bali" loading="lazy" />
           </article>
 
           <article class="slide">
-            <img src="img/palme2.jpg" alt="Matériel - palmes" loading="lazy" />
+            <img src="img/carou2.jpg" alt="Matériel - palmes" loading="lazy" />
           </article>
 
           <article class="slide">
-            <img src="img/masque.jpg" alt="Matériel - masque" loading="lazy" />
+            <img src="img/carou3.jpg" alt="Matériel - masque" loading="lazy" />
           </article>
 
           <article class="slide">
