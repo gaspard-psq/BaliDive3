@@ -67,9 +67,7 @@ include __DIR__ . "/includes/header.php";
             <img src="img/carou3.jpg" alt="Matériel - masque" loading="lazy" />
           </article>
 
-          <article class="slide">
-            <img src="img/rashguard.jpg" alt="Rashguard" loading="lazy" />
-          </article>
+
         </div>
       </div>
 
